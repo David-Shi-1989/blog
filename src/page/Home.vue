@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="x-main">
     <h2>Home</h2>
   </div>
 </template>
@@ -16,4 +16,9 @@ export default {
 </script>
 
 <style scoped>
+div.x-main{
+  width:100%;
+  height:100%;
+  background:#fff;
+}
 </style>

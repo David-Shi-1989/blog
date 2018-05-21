@@ -1,16 +1,21 @@
 <template>
   <div id="app">
     <el-row>
-      <el-col :span="24">
-        <xHeader></xHeader>
+      <el-col :span="4">
+        <xSideBarLeft></xSideBarLeft>
       </el-col>
-    </el-row>
-    <el-row id="ng_main_container">
-      <el-col :span="3">
-        <xSideBar></xSideBar>
-      </el-col>
-      <el-col :span="21">
-        <router-view></router-view>
+      <el-col :span="20">
+        <div id="main_container">
+          <xHeader></xHeader>
+          <el-row>
+            <el-col :span="20">
+              <router-view></router-view>
+            </el-col>
+            <el-col :span="4">
+              <xSideBarRight></xSideBarRight>
+            </el-col>
+          </el-row>
+        </div>
       </el-col>
     </el-row>
   </div>
@@ -18,10 +23,11 @@
 
 <script>
 import xHeader from '@/components/Header'
-import xSideBar from '@/components/SideBar'
+import xSideBarLeft from '@/components/SideBarLeft'
+import xSideBarRight from '@/components/SideBarRight'
 export default {
   name: 'App',
-  components: {xHeader, xSideBar}
+  components: {xHeader, xSideBarLeft, xSideBarRight}
 }
 </script>
 
@@ -35,7 +41,12 @@ export default {
   width:100%;
   height: 100%;
 }
-#ng_main_container{
-  height: calc(100% - var(--header-height));
+#main_container{
+  width:100%;
+  height:100%;
+  box-shadow:#444 2px 0px 6px;
+}
+.el-col, .el-row {
+  height: 100%;
 }
 </style>
