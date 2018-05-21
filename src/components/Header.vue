@@ -20,6 +20,6 @@ export default {
 }
 #ng_header .x-header{
   height: var(--header-height);
-  background-color: #535F6F;
+  background-color: var(--header-bg2);
 }
 </style>

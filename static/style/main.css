@@ -13,7 +13,8 @@ html, body{
 
 body {
   --header-height: 2.8rem;
-  --header-bg: #353636;
+  --header-bg: #111933;
+  --header-bg2: #303850;
 }
 
 @media only screen and (max-width: 1921px) {
