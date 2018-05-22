@@ -17,8 +17,6 @@ export default {
 
 <style scoped>
 div.x-main{
-  width:100%;
-  height:100%;
   background:#fff;
 }
 </style>

@@ -20,8 +20,9 @@ export default {
 
 <style scoped>
 #ng_sidebar_right{
-  width: 100%;
+  width: 6rem;
   height: 100%;
+  float:right;
   box-sizing: border-box;
   background-color: #f7f7f7;
 }

@@ -1,35 +1,24 @@
 <template>
   <div id="app">
     <xSideBarLeft></xSideBarLeft>
-    <div id="main_container">
+    <div id="main_container" class="clr-float">
       <xHeader></xHeader>
-      <el-row>
+      <div class="clr"></div>
+      <div id="main_container2">
+        <xSideBarRight></xSideBarRight>
+        <div style="height:100%;overflow:hidden;">
+          <router-view></router-view>
+        </div>
+      </div>
+      <!-- <el-row>
         <el-col :span="20">
           <router-view></router-view>
         </el-col>
         <el-col :span="4">
           <xSideBarRight></xSideBarRight>
         </el-col>
-      </el-row>
+      </el-row> -->
     </div>
-    <!-- <el-row>
-      <el-col :span="3">
-        <xSideBarLeft></xSideBarLeft>
-      </el-col>
-      <el-col :span="21">
-        <div id="main_container">
-          <xHeader></xHeader>
-          <el-row>
-            <el-col :span="20">
-              <router-view></router-view>
-            </el-col>
-            <el-col :span="4">
-              <xSideBarRight></xSideBarRight>
-            </el-col>
-          </el-row>
-        </div>
-      </el-col>
-    </el-row> -->
   </div>
 </template>
 
@@ -60,5 +49,9 @@ export default {
 }
 .el-col, .el-row {
   height: 100%;
+}
+#main_container2{
+  width: 100%;
+  height: calc(100% - var(--header-height));
 }
 </style>
