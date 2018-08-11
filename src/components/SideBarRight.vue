@@ -1,5 +1,5 @@
 <template>
-  <div id="ng_sidebar_right">
+  <div id="sww_sidebar">
     RightSide
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style scoped>
-#ng_sidebar_right{
+#sww_sidebar{
   width: 15rem;
   height: 100%;
   float:right;

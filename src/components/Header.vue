@@ -1,5 +1,5 @@
 <template>
-  <div id="ng_header">
+  <div id="sww_header">
     <div class="x-header">
       <div class="sww-menu-container">
         <ul class="sww-header-menus sww-ul-sww-clr-float">
@@ -39,10 +39,10 @@ export default {
 </script>
 
 <style scoped>
-#ng_header{
+#sww_header{
   width: 100%;
 }
-#ng_header .x-header{
+#sww_header .x-header{
   height: var(--header-height);
   background-color: var(--header-bg2);
   padding: 0 1rem;
