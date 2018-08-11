@@ -3,10 +3,9 @@
     <xSideBarLeft></xSideBarLeft>
     <div id="main_container" class="sww-clr-float">
       <xHeader></xHeader>
-      <div class="clr"></div>
       <div id="main_container2">
         <xSideBarRight></xSideBarRight>
-        <div style="height:100%;overflow:hidden;">
+        <div style="height:100%;overflow:hidden;padding: 1rem;">
           <router-view></router-view>
         </div>
       </div>

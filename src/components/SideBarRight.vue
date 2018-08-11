@@ -25,5 +25,6 @@ export default {
   float:right;
   box-sizing: border-box;
   background-color: #f7f7f7;
+  padding: 1rem;
 }
 </style>

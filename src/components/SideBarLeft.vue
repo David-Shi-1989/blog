@@ -102,6 +102,7 @@ export default {
 #sww_sidebar .x-avatar {
   width: 100%;
   box-sizing: border-box;
+  text-align: center;
 }
 #sww_sidebar .x-avatar img{
   width: 70%;
