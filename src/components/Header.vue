@@ -21,7 +21,7 @@ export default {
       activeMenuIdx: 0,
       menusArr: [
         {title: '主页', to: '/'},
-        {title: '博客', to: '/'},
+        {title: '博客', to: '/blog'},
         {title: '照片', to: '/'},
         {title: '心情', to: '/'}
       ]

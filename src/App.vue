@@ -53,6 +53,7 @@ export default {
   overflow:hidden;
   padding: 1rem;
   box-sizing: border-box;
+  background-color: #f7f7f7;
   z-index: 90;
 }
 </style>

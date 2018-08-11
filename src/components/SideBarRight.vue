@@ -24,7 +24,7 @@ export default {
   height: 100%;
   float:right;
   box-sizing: border-box;
-  background-color: #f7f7f7;
+  background-color: #fff;
   padding: 1rem;
 }
 </style>
