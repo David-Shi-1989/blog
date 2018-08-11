@@ -40,7 +40,10 @@ export default {
 
 <style scoped>
 #sww_header{
+  position: relative;
   width: 100%;
+  box-shadow: 0 0.1rem 0.1rem #999;
+  z-index: 100;
 }
 #sww_header .x-header{
   height: var(--header-height);

@@ -5,7 +5,7 @@
       <xHeader></xHeader>
       <div id="main_container2">
         <xSideBarRight></xSideBarRight>
-        <div style="height:100%;overflow:hidden;padding: 1rem;">
+        <div id="mainPage">
           <router-view></router-view>
         </div>
       </div>
@@ -43,5 +43,16 @@ export default {
 #main_container2{
   width: 100%;
   height: calc(100% - var(--header-height));
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#mainPage{
+  position: relative;
+  height:100%;
+  overflow:hidden;
+  padding: 1rem;
+  box-sizing: border-box;
+  z-index: 90;
 }
 </style>
