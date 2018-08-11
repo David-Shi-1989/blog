@@ -10,14 +10,6 @@
           <router-view></router-view>
         </div>
       </div>
-      <!-- <el-row>
-        <el-col :span="20">
-          <router-view></router-view>
-        </el-col>
-        <el-col :span="4">
-          <xSideBarRight></xSideBarRight>
-        </el-col>
-      </el-row> -->
     </div>
   </div>
 </template>
