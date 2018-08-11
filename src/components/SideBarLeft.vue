@@ -145,6 +145,7 @@ export default {
 }
 #ng_sidebar .x-menus span{
   --dot-width: .9rem;
+  text-align: center;
   float: right;
   font-size: .6rem;
   background-color: #555;

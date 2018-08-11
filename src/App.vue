@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <xSideBarLeft></xSideBarLeft>
-    <div id="main_container" class="clr-float">
+    <div id="main_container" class="sww-clr-float">
       <xHeader></xHeader>
       <div class="clr"></div>
       <div id="main_container2">
@@ -29,7 +29,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   width:100%;
   height: 100%;

@@ -16,12 +16,32 @@ body {
   --header-bg: #111933;
   --header-bg2: #303850;
 }
+ul {
+  list-style: none;
+}
+/*清除浮动*/
 .clr{
   clear: both;
 }
-.clr-float::after {
-  content: " ";
+.sww-clr-float{
+  zoom: 1;
+}
+.sww-clr-float::after {
+  content: "";
   width:0;
+  height: 0;
+  display: block;
+  clear: both;
+}
+ul.sww-ul-sww-clr-float{
+  zoom: 1;
+}
+ul.sww-ul-sww-clr-float > li {
+  float: left;
+}
+ul.sww-ul-sww-clr-float::after{
+  content: "";
+  width: 0;
   height: 0;
   display: block;
   clear: both;
