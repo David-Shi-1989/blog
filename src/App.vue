@@ -36,6 +36,8 @@ export default {
   height:100%;
   box-shadow:#444 2px 0px 6px;
   overflow: hidden;
+  position: relative;
+  z-index: 18;
 }
 .el-col, .el-row {
   height: 100%;

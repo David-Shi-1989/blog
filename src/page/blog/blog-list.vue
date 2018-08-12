@@ -9,10 +9,10 @@
           <div><p><i class="fa fa-calendar"></i><span class="date">2018/08/04</span></p></div>
           <div><p><i class="fa fa-clock-o"></i><span class="time">15:12</span></p></div>
         </div>
+        <p class="content">在很多技术博客中，需要贴上一些代码。目前网上也有很多成熟的代码高亮的js库，方便也美观。但是，折腾了一个礼拜，我也搞了一个出来，暂且称为LightCode吧～目前只开发出HTML代码高亮，后期将会推出js和css的高亮。原理：LightCode一个字一个符号地分析代码流，然后构造出树形结构，这也符合HTML代码的规则。这样不仅可以利用于高亮代码，也可以用在其他地方。。。好吧，言归正传，戳这里</p>
         <div class="tags">
           <span>HTML</span><span>VUE</span><span>CSS</span>
         </div>
-        <p class="content">在很多技术博客中，需要贴上一些代码。目前网上也有很多成熟的代码高亮的js库，方便也美观。但是，折腾了一个礼拜，我也搞了一个出来，暂且称为LightCode吧～目前只开发出HTML代码高亮，后期将会推出js和css的高亮。原理：LightCode一个字一个符号地分析代码流，然后构造出树形结构，这也符合HTML代码的规则。这样不仅可以利用于高亮代码，也可以用在其他地方。。。好吧，言归正传，戳这里</p>
       </li>
     </ul>
   </div>
@@ -23,7 +23,6 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
     }
   }
 }
@@ -35,11 +34,11 @@ ul.sww-blog-list-container{
 }
 ul.sww-blog-list-container > li {
   width: 20rem;
-  --border-radius: 0.5rem;
+  --border-radius: 0.3rem;
   --font-size:0.7rem;
   background-color: #fff;
-  padding-bottom: 0.5rem;
   box-sizing: border-box;
+  border: 0.05rem solid #e8e8e8;
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
   transition: all 0.2s;
@@ -62,41 +61,57 @@ ul.sww-blog-list-container > li .sww-blog-item-info > div{
 ul.sww-blog-list-container > li .title{
   height: 2rem;
   line-height: 2rem;
-  border-bottom: 0.05rem dashed #ccc;
+  border-bottom: 0.05rem dashed #ddd;
+  color: #232323;
   padding: 0 0.5rem;
 
 }
 ul.sww-blog-list-container > li i{
   font-size: var(--font-size);
   margin-right: 0.3rem;
-  color: #999;
+  color: #777;
 }
 ul.sww-blog-list-container > li .author,
 ul.sww-blog-list-container > li .date,
 ul.sww-blog-list-container > li .time{
   font-size: var(--font-size);
-  color: #999;
+  color: #777;
 }
 ul.sww-blog-list-container > li .content{
   font-size: 0.7rem;
   text-indent: 1.3rem;
   padding: 0.2rem 0.5rem;
+  border-color: #ccc;
+  border-style: solid;
+  border-top-width: 0.05rem;
+  border-bottom-width: 0.05rem;
+  border-right-width: 0;
+  border-left-width: 0;
 }
 ul.sww-blog-list-container > li .tags{
   padding: 0 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+
+}
+ul.sww-blog-list-container > li .tags::before{
+  content: '标签:';
+  font-size: 0.7rem;
+  margin-right: 0.4rem;
 }
 ul.sww-blog-list-container > li .tags > span{
   font-size: 0.6rem;
   display: inline-block;
-  color:#aaa;
-  border: 0.05rem solid #aaa;
+  color:#555;
   padding: 0.05rem 0.2rem;
   margin-right: 0.2rem;
   cursor: pointer;
   transition: all 0.2s;
+  border: 0.05rem solid #ccc;
+  transition: all 0.3s;
 }
 ul.sww-blog-list-container > li .tags > span:hover{
-  color:#777;
-  border-color: #777;
+  color:var(--color-info);
 }
 </style>

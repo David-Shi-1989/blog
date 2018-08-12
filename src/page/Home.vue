@@ -17,6 +17,5 @@ export default {
 
 <style scoped>
 div.x-main{
-  background:#fff;
 }
 </style>
