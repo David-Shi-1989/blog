@@ -2,16 +2,16 @@
   <div class="x-main">
     <h2>Blog List</h2>
     <ul class="sww-blog-list-container sww-ul-sww-clr-float">
-      <li>
-        <h4 class="title">Title1</h4>
+      <li v-for="(item,index) in blogList" :key="index">
+        <h4 class="title">{{item.title}}</h4>
         <div class="sww-blog-item-info sww-clr-float">
-          <div><p class="author"><i class="fa fa-user-circle"></i>David</p></div>
-          <div><p><i class="fa fa-calendar"></i><span class="date">2018/08/04</span></p></div>
-          <div><p><i class="fa fa-clock-o"></i><span class="time">15:12</span></p></div>
+          <div><p class="author"><i class="fa fa-user-circle"></i>{{item.author}}</p></div>
+          <div><p><i class="fa fa-calendar"></i><span class="date">{{(new Date(item.createTime)).format('yyyy/MM/dd')}}</span></p></div>
+          <div><p><i class="fa fa-clock-o"></i><span class="time">{{(new Date(item.createTime)).format('hh/mm')}}</span></p></div>
         </div>
-        <p class="content">在很多技术博客中，需要贴上一些代码。目前网上也有很多成熟的代码高亮的js库，方便也美观。但是，折腾了一个礼拜，我也搞了一个出来，暂且称为LightCode吧～目前只开发出HTML代码高亮，后期将会推出js和css的高亮。原理：LightCode一个字一个符号地分析代码流，然后构造出树形结构，这也符合HTML代码的规则。这样不仅可以利用于高亮代码，也可以用在其他地方。。。好吧，言归正传，戳这里</p>
+        <p class="content">{{item.description}}</p>
         <div class="tags">
-          <span>HTML</span><span>VUE</span><span>CSS</span>
+          <span v-for="(tagItem,tagIdx) in item.tags" :key="tagIdx">{{tagItem.name}}</span>
         </div>
       </li>
     </ul>
@@ -23,6 +23,20 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
+      blogList: [
+        {
+          title: 'Title1',
+          author: 'David',
+          type: 1,
+          createTime: 1534297924817,
+          description: '在很多技术博客中，需要贴上一些代码。目前网上也有很多成熟的代码高亮的js库，方便也美观。但是，折腾了一个礼拜，我也搞了一个出来，暂且称为LightCode吧～目前只开发出HTML代码高亮，后期将会推出js和css的高亮。原理：LightCode一个字一个符号地分析代码流，然后构造出树形结构，这也符合HTML代码的规则。这样不仅可以利用于高亮代码，也可以用在其他地方。。。好吧，言归正传，戳这里',
+          tags: [
+            {name: 'HTML', id: 1},
+            {name: 'VUE', id: 2},
+            {name: 'CSS', id: 3}
+          ]
+        }
+      ]
     }
   }
 }

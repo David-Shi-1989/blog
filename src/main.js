@@ -8,6 +8,7 @@ import App from './App'
 import router from './router'
 import $ from 'jquery'
 import '~/style/main.css'
+import '../static/script/common'
 
 Vue.config.productionTip = false
 
