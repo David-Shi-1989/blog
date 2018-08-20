@@ -1,18 +1,30 @@
 <template>
   <div class="x-main">
     <h2>Blog List</h2>
-    <ul class="sww-blog-list-container sww-ul-sww-clr-float">
+    <ul class="sww-blog-list-container">
       <li v-for="(item,index) in blogList" :key="index">
-        <h4 class="title">{{item.title}}</h4>
+        <div class="header">
+          <h4 class="title sww-text-ellipsis" :title="item.title">{{item.title}}</h4>
+          <span class="date">
+            <p class="month">八月</p>
+            <p class="date">29</p>
+            <p class="time">12:29</p>
+          </span>
+        </div>
         <div class="sww-blog-item-info sww-clr-float">
           <div><p class="author"><i class="fa fa-user-circle"></i>{{item.author}}</p></div>
-          <div><p><i class="fa fa-calendar"></i><span class="date">{{(new Date(item.createTime)).format('yyyy/MM/dd')}}</span></p></div>
-          <div><p><i class="fa fa-clock-o"></i><span class="time">{{(new Date(item.createTime)).format('hh/mm')}}</span></p></div>
         </div>
         <p class="content">{{item.description}}</p>
         <div class="tags">
+          <i class="fa fa-tags"></i>
           <span v-for="(tagItem,tagIdx) in item.tags" :key="tagIdx">{{tagItem.name}}</span>
         </div>
+      </li>
+    </ul>
+    <ul class="sww-blog-list-c2" v-show="false">
+      <li v-for="(item,index) in blogList" :key="index" :class="(item.type==0?'sww-blog-type-0':'sww-blog-type-1') + ' sww-clr-float'">
+        <span class="sww-blog-title sww-text-ellipsis" :title="item.title">{{item.title}}</span>
+        <span class="sww-blog-datetime">{{(new Date(item.createTime)).format(dateformat)}}</span>
       </li>
     </ul>
   </div>
@@ -23,9 +35,46 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
+      dateformat: 'yyyy/MM/dd hh:mm',
       blogList: [
         {
           title: 'Title1',
+          author: 'David',
+          type: 1,
+          createTime: 1534297924817,
+          description: '在很多技术博客中，需要贴上一些代码。目前网上也有很多成熟的代码高亮的js库，方便也美观。但是，折腾了一个礼拜，我也搞了一个出来，暂且称为LightCode吧～目前只开发出HTML代码高亮，后期将会推出js和css的高亮。原理：LightCode一个字一个符号地分析代码流，然后构造出树形结构，这也符合HTML代码的规则。这样不仅可以利用于高亮代码，也可以用在其他地方。。。好吧，言归正传，戳这里',
+          tags: [
+            {name: 'HTML', id: 1},
+            {name: 'VUE', id: 2},
+            {name: 'CSS', id: 3}
+          ]
+        },
+        {
+          title: 'Title2',
+          author: 'David',
+          type: 0,
+          createTime: 1534297924817,
+          description: '在很多技术博客中，需要贴上一些代码。目前网上也有很多成熟的代码高亮的js库，方便也美观。但是，折腾了一个礼拜，我也搞了一个出来，暂且称为LightCode吧～目前只开发出HTML代码高亮，后期将会推出js和css的高亮。原理：LightCode一个字一个符号地分析代码流，然后构造出树形结构，这也符合HTML代码的规则。这样不仅可以利用于高亮代码，也可以用在其他地方。。。好吧，言归正传，戳这里',
+          tags: [
+            {name: 'HTML', id: 1},
+            {name: 'VUE', id: 2},
+            {name: 'CSS', id: 3}
+          ]
+        },
+        {
+          title: '很长很长很长很长很长很长很长很长很长很长很长很长很长很长的标题',
+          author: 'David',
+          type: 1,
+          createTime: 1534297924817,
+          description: '在很多技术博客中，需要贴上一些代码。目前网上也有很多成熟的代码高亮的js库，方便也美观。但是，折腾了一个礼拜，我也搞了一个出来，暂且称为LightCode吧～目前只开发出HTML代码高亮，后期将会推出js和css的高亮。原理：LightCode一个字一个符号地分析代码流，然后构造出树形结构，这也符合HTML代码的规则。这样不仅可以利用于高亮代码，也可以用在其他地方。。。好吧，言归正传，戳这里',
+          tags: [
+            {name: 'HTML', id: 1},
+            {name: 'VUE', id: 2},
+            {name: 'CSS', id: 3}
+          ]
+        },
+        {
+          title: 'Title2',
           author: 'David',
           type: 1,
           createTime: 1534297924817,
@@ -44,19 +93,18 @@ export default {
 
 <style scoped>
 ul.sww-blog-list-container{
-  width: 100%;
+  width: 70%;
+  margin: 0 auto;
 }
 ul.sww-blog-list-container > li {
-  width: 20rem;
-  --border-radius: 0.3rem;
   --font-size:0.7rem;
   background-color: #fff;
+  padding: 1rem 2rem;
   box-sizing: border-box;
   border: 0.05rem solid #e8e8e8;
-  border-bottom-left-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
   transition: all 0.2s;
   cursor: pointer;
+  margin-bottom: 1rem;
 }
 ul.sww-blog-list-container > li:hover{
   box-shadow: 0 0 0.1rem #999;
@@ -72,19 +120,54 @@ ul.sww-blog-list-container > li .sww-blog-item-info > div{
   height: 1rem;
   line-height: 1rem;
 }
-ul.sww-blog-list-container > li .title{
+ul.sww-blog-list-container > li .header{
+  position: relative;
+  border-bottom: 0.05rem dashed #ddd;
+  height: 3.5rem;
+  line-height: 3.5rem;
+}
+ul.sww-blog-list-container > li .header .title{
   height: 2rem;
   line-height: 2rem;
-  border-bottom: 0.05rem dashed #ddd;
-  color: #232323;
-  padding: 0 0.5rem;
+  color: #444;
+  display: block;
+  width: 80%;
+}
+ul.sww-blog-list-container > li .header .date{
+  position: absolute;
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  background-color: yellow;
+  top:0;
+  right: 1rem;
+}
+ul.sww-blog-list-container > li .header .date > p{
 
+}
+ul.sww-blog-list-container > li .header .date > p.month {
+  --font-size:1.2rem;
+  font-size: var(--font-size);
+  height: var(--font-size);
+  line-height: var(--font-size);
+}
+/* ul.sww-blog-list-container > li .header .date > p.date {
+  --font-size:0.8rem;
+  font-size: var(--font-size);
+  height: var(--font-size);
+  line-height: var(--font-size);
+}
+ul.sww-blog-list-container > li .header .date > p.time {
+  --font-size:0.6rem;
+  font-size: var(--font-size);
+  height: var(--font-size);
+  line-height: var(--font-size);
 }
 ul.sww-blog-list-container > li i{
   font-size: var(--font-size);
   margin-right: 0.3rem;
   color: #777;
-}
+} */
 ul.sww-blog-list-container > li .author,
 ul.sww-blog-list-container > li .date,
 ul.sww-blog-list-container > li .time{
@@ -109,11 +192,6 @@ ul.sww-blog-list-container > li .tags{
   border-bottom-right-radius: var(--border-radius);
 
 }
-ul.sww-blog-list-container > li .tags::before{
-  content: '标签:';
-  font-size: 0.7rem;
-  margin-right: 0.4rem;
-}
 ul.sww-blog-list-container > li .tags > span{
   font-size: 0.6rem;
   display: inline-block;
@@ -127,5 +205,38 @@ ul.sww-blog-list-container > li .tags > span{
 }
 ul.sww-blog-list-container > li .tags > span:hover{
   color:var(--color-info);
+}
+
+.sww-blog-list-c2{
+  list-style: none;
+}
+.sww-blog-list-c2 > li {
+  height: 1.2rem;
+  line-height: 1.2rem;
+  vertical-align: middle;
+  font-size: 0.7rem;
+}
+.sww-blog-list-c2 > li.sww-blog-type-0 span.sww-blog-title::before{
+  content: '[转]';
+  font-size: 0.6rem;
+  display: block;
+  float: left;
+  margin-right: 0.3rem;
+}
+.sww-blog-list-c2 > li.sww-blog-type-1 span.sww-blog-title::before{
+  content: '[原]';
+  font-size: 0.6rem;
+  display: block;
+  float: left;
+  margin-right: 0.3rem;
+}
+.sww-blog-list-c2 > li span.sww-blog-title{
+  display: block;
+  float: left;
+  width: 15rem;
+}
+.sww-blog-list-c2 > li span.sww-blog-datetime{
+  display: block;
+  float: right;
 }
 </style>

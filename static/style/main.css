@@ -32,9 +32,9 @@ ul {
 }
 .sww-clr-float::after {
   content: "";
-  width:0;
-  height: 0;
   display: block;
+  visibility: hidden;
+  height: 0;
   clear: both;
 }
 ul.sww-ul-sww-clr-float{
@@ -55,6 +55,12 @@ ul.sww-ul-sww-clr-float::after{
 }
 .sww-float-right{
   float: right;
+}
+/*超出省略号*/
+.sww-text-ellipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media only screen and (max-width: 1921px) {
