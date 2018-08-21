@@ -3,13 +3,15 @@
     <h2>Blog List</h2>
     <ul class="sww-blog-list-container">
       <li v-for="(item,index) in blogList" :key="index">
-        <div class="header">
+        <div class="header sww-clr-float">
           <h4 class="title sww-text-ellipsis" :title="item.title">{{item.title}}</h4>
-          <span class="date">
-            <p class="month">八月</p>
-            <p class="date">29</p>
-            <p class="time">12:29</p>
-          </span>
+          <div class="dateContainer sww-clr-float">
+            <div>
+              <p class="month">八</p>
+              <p class="date">29</p>
+              <p class="time">12:29</p>
+            </div>
+          </div>
         </div>
         <div class="sww-blog-item-info sww-clr-float">
           <div><p class="author"><i class="fa fa-user-circle"></i>{{item.author}}</p></div>
@@ -93,7 +95,7 @@ export default {
 
 <style scoped>
 ul.sww-blog-list-container{
-  width: 70%;
+  width: 50rem;
   margin: 0 auto;
 }
 ul.sww-blog-list-container > li {
@@ -107,7 +109,7 @@ ul.sww-blog-list-container > li {
   margin-bottom: 1rem;
 }
 ul.sww-blog-list-container > li:hover{
-  box-shadow: 0 0 0.1rem #999;
+  /* box-shadow: 0 0 0.1rem #999; */
 }
 ul.sww-blog-list-container > li .sww-blog-item-info{
   margin-top: 0.2rem;
@@ -131,45 +133,47 @@ ul.sww-blog-list-container > li .header .title{
   line-height: 2rem;
   color: #444;
   display: block;
-  width: 80%;
+  width: calc(100% - 5rem);
+  float: left;
 }
-ul.sww-blog-list-container > li .header .date{
-  position: absolute;
-  display: block;
+ul.sww-blog-list-container > li .header .dateContainer{
   width: 3rem;
-  height: 3rem;
+  height: auto;
   background-color: yellow;
-  top:0;
-  right: 1rem;
+  float: right;
+  margin-top: -1rem;
+  padding: 0.3rem 0;
 }
-ul.sww-blog-list-container > li .header .date > p{
-
+ul.sww-blog-list-container > li .header .dateContainer p{
+  color:#555;
+  vertical-align: middle;
+  text-align: center;
 }
-ul.sww-blog-list-container > li .header .date > p.month {
-  --font-size:1.2rem;
-  font-size: var(--font-size);
-  height: var(--font-size);
-  line-height: var(--font-size);
+ul.sww-blog-list-container > li .header .dateContainer p.month {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: bolder;
 }
-/* ul.sww-blog-list-container > li .header .date > p.date {
-  --font-size:0.8rem;
-  font-size: var(--font-size);
-  height: var(--font-size);
-  line-height: var(--font-size);
+ul.sww-blog-list-container > li .header .dateContainer p.month::after{
+  content: "月";
+  font-size: 0.7rem;
+  margin-left: 0.2rem;
 }
-ul.sww-blog-list-container > li .header .date > p.time {
-  --font-size:0.6rem;
-  font-size: var(--font-size);
-  height: var(--font-size);
-  line-height: var(--font-size);
+ul.sww-blog-list-container > li .header .dateContainer p.date {
+  font-size: .8rem;
+  line-height: 1.2rem;
+}
+ul.sww-blog-list-container > li .header .dateContainer p.time {
+  font-size: .6rem;
+  line-height: .6rem;
 }
 ul.sww-blog-list-container > li i{
   font-size: var(--font-size);
   margin-right: 0.3rem;
   color: #777;
-} */
+}
 ul.sww-blog-list-container > li .author,
-ul.sww-blog-list-container > li .date,
+ul.sww-blog-list-container > li .dateContainer,
 ul.sww-blog-list-container > li .time{
   font-size: var(--font-size);
   color: #777;
