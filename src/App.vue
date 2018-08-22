@@ -8,6 +8,7 @@
         <div id="mainPage">
           <router-view></router-view>
         </div>
+        <div v-show="isShowLoading">Loading...</div>
       </div>
     </div>
   </div>
@@ -19,7 +20,14 @@ import xSideBarLeft from '@/components/SideBarLeft'
 import xSideBarRight from '@/components/SideBarRight'
 export default {
   name: 'App',
-  components: {xHeader, xSideBarLeft, xSideBarRight}
+  components: {xHeader, xSideBarLeft, xSideBarRight},
+  data: () => {
+    debugger
+    var isShowLoading = this.$store.getters.isShowLoading
+    return {
+      isShowLoading
+    }
+  }
 }
 </script>
 
