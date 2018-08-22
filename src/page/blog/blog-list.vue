@@ -2,20 +2,17 @@
   <div class="x-main">
     <h2>Blog List</h2>
     <ul class="sww-blog-list-container">
-      <li v-for="(item,index) in blogList" :key="index">
+      <li v-for="(item,index) in blogList" :key="index" :class="'sww-blog-list-item item'+item.type">
         <div class="header sww-clr-float">
           <h4 class="title sww-text-ellipsis" :title="item.title">{{item.title}}</h4>
-          <div class="dateContainer sww-clr-float">
-            <div>
-              <p class="month">八</p>
-              <p class="date">29</p>
-              <p class="time">12:29</p>
-            </div>
+          <div class="tagContainer">
+            <span class="bg"></span>
+            <p>{{item.type>0?'转载':'原创'}}</p>
           </div>
         </div>
-        <div class="sww-blog-item-info sww-clr-float">
+        <!-- <div class="sww-blog-item-info sww-clr-float">
           <div><p class="author"><i class="fa fa-user-circle"></i>{{item.author}}</p></div>
-        </div>
+        </div> -->
         <p class="content">{{item.description}}</p>
         <div class="tags">
           <i class="fa fa-tags"></i>
@@ -101,12 +98,20 @@ ul.sww-blog-list-container{
 ul.sww-blog-list-container > li {
   --font-size:0.7rem;
   background-color: #fff;
-  padding: 1rem 2rem;
+  padding:0.7rem 0;
   box-sizing: border-box;
   border: 0.05rem solid #e8e8e8;
   transition: all 0.2s;
   cursor: pointer;
   margin-bottom: 1rem;
+}
+/*原创*/
+ul.sww-blog-list-container > li.sww-blog-list-item.item0 span.bg{
+  border-color: transparent var(--color-error) transparent transparent;
+}
+/*转载*/
+ul.sww-blog-list-container > li.sww-blog-list-item.item1 span.bg{
+  border-color: transparent var(--color-info) transparent transparent;
 }
 ul.sww-blog-list-container > li:hover{
   /* box-shadow: 0 0 0.1rem #999; */
@@ -124,9 +129,8 @@ ul.sww-blog-list-container > li .sww-blog-item-info > div{
 }
 ul.sww-blog-list-container > li .header{
   position: relative;
-  border-bottom: 0.05rem dashed #ddd;
-  height: 3.5rem;
-  line-height: 3.5rem;
+  height: 2rem;
+  line-height: 2rem;
 }
 ul.sww-blog-list-container > li .header .title{
   height: 2rem;
@@ -135,37 +139,39 @@ ul.sww-blog-list-container > li .header .title{
   display: block;
   width: calc(100% - 5rem);
   float: left;
+  box-sizing: border-box;
+  padding: 0 2rem;
 }
-ul.sww-blog-list-container > li .header .dateContainer{
-  width: 3rem;
-  height: auto;
-  background-color: yellow;
+ul.sww-blog-list-container > li .header .tagContainer{
   float: right;
-  margin-top: -1rem;
-  padding: 0.3rem 0;
+  margin-top: -0.7rem;
+  margin-right: 2rem;
+  position: relative;
+  width: 3rem;
+  height: 3rem;
 }
-ul.sww-blog-list-container > li .header .dateContainer p{
-  color:#555;
-  vertical-align: middle;
+ul.sww-blog-list-container > li .header .tagContainer p{
+  line-height: 1rem;
   text-align: center;
+  position: relative;
+  z-index: 90;
+  top:0.2rem;
+  right: -2.8rem;
+  color:#fff;
+  font-size: 0.6rem;
+  letter-spacing: 0.1rem;
 }
-ul.sww-blog-list-container > li .header .dateContainer p.month {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: bolder;
-}
-ul.sww-blog-list-container > li .header .dateContainer p.month::after{
-  content: "月";
-  font-size: 0.7rem;
-  margin-left: 0.2rem;
-}
-ul.sww-blog-list-container > li .header .dateContainer p.date {
-  font-size: .8rem;
-  line-height: 1.2rem;
-}
-ul.sww-blog-list-container > li .header .dateContainer p.time {
-  font-size: .6rem;
-  line-height: .6rem;
+ul.sww-blog-list-container > li .header .tagContainer span.bg{
+  display: block;
+  position: absolute;
+  width:0;
+  height: 0;
+  border-width: 0 2.5rem 2.5rem;
+  border-style: solid;
+  /* border-color: transparent #888 transparent transparent; */
+  top:0;
+  left: 0;
+  z-index: 89;
 }
 ul.sww-blog-list-container > li i{
   font-size: var(--font-size);
@@ -173,21 +179,23 @@ ul.sww-blog-list-container > li i{
   color: #777;
 }
 ul.sww-blog-list-container > li .author,
-ul.sww-blog-list-container > li .dateContainer,
+ul.sww-blog-list-container > li .tagContainer,
 ul.sww-blog-list-container > li .time{
   font-size: var(--font-size);
   color: #777;
 }
 ul.sww-blog-list-container > li .content{
+  height: 4rem;
   font-size: 0.7rem;
   text-indent: 1.3rem;
   padding: 0.2rem 0.5rem;
   border-color: #ccc;
-  border-style: solid;
+  border-style: dashed;
   border-top-width: 0.05rem;
   border-bottom-width: 0.05rem;
   border-right-width: 0;
   border-left-width: 0;
+
 }
 ul.sww-blog-list-container > li .tags{
   padding: 0 0.5rem;
