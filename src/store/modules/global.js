@@ -1,9 +1,9 @@
 var state = {
-  isLoading: false
+  isLoading: false // Loading遮罩层是否显示
 }
 
 var getters = {
-  isLoading: (state) => {
+  isLoading: state => {
     return state.isLoading
   }
 }
@@ -19,6 +19,7 @@ var actions = {
 }
 
 export default {
+  namespaved: true,
   state,
   getters,
   actions,

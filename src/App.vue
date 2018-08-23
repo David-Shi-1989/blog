@@ -8,7 +8,7 @@
         <div id="mainPage">
           <router-view></router-view>
         </div>
-        <div v-show="isShowLoading">Loading...</div>
+        <div v-show="isShowLoading" id="sww_loading">Loading...</div>
       </div>
     </div>
   </div>
@@ -21,9 +21,8 @@ import xSideBarRight from '@/components/SideBarRight'
 export default {
   name: 'App',
   components: {xHeader, xSideBarLeft, xSideBarRight},
-  data: () => {
-    debugger
-    var isShowLoading = this.$store.getters.isShowLoading
+  data () {
+    var isShowLoading = this.$store.getters.isLoading
     return {
       isShowLoading
     }
@@ -65,5 +64,14 @@ export default {
   box-sizing: border-box;
   background-color: #f7f7f7;
   z-index: 90;
+}
+#sww_loading{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+  top:0;
+  left: 0;
+  z-index: 1000;
 }
 </style>
