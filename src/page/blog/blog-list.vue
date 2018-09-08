@@ -26,12 +26,17 @@
         <span class="sww-blog-datetime">{{(new Date(item.createTime)).format(dateformat)}}</span>
       </li>
     </ul>
+    <div class="sww-cpt-scroll-bar"></div>
+    <!-- <div style="position:absolute;top:0;right:0;width:0.5rem;height:100%;">
+      <cptScrollbar></cptScrollbar>
+    </div> -->
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
+  components: {},
   data () {
     return {
       dateformat: 'yyyy/MM/dd hh:mm',
@@ -91,6 +96,9 @@ export default {
 </script>
 
 <style scoped>
+.x-main {
+  position: relative;
+}
 ul.sww-blog-list-container{
   width: 50rem;
   margin: 0 auto;

@@ -59,11 +59,17 @@ export default {
 #mainPage{
   position: relative;
   height:100%;
-  overflow:hidden;
+  overflow-x:hidden;
+  overflow-y: auto;
   padding: 1rem;
   box-sizing: border-box;
   background-color: #f7f7f7;
   z-index: 90;
+  scrollbar-arrow-color: red;
+  scrollbar-face-color: green;
+  -ms-scrollbar-face-color:green;
+  scrollbar-track-color: yellow;
+  scrollbar-highlight-color: blue;
 }
 #sww_loading{
   position: absolute;
@@ -73,5 +79,15 @@ export default {
   top:0;
   left: 0;
   z-index: 1000;
+}
+::-webkit-scrollbar{
+  width: .2rem;
+  background: rgba(0,0,0,0.1);
+}
+::-webkit-scrollbar-track{
+  background-color: rgba(0,0,0,0.1);
+}
+::-webkit-scrollbar-thumb{
+  background-color: rgba(0,0,0,0.6);
 }
 </style>
