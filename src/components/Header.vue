@@ -22,7 +22,7 @@ export default {
       menusArr: [
         {title: '主页', to: '/'},
         {title: '博客', to: '/blog'},
-        {title: '照片', to: '/'},
+        {title: '照片', to: '/album'},
         {title: '心情', to: '/'}
       ]
     }
