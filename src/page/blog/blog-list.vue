@@ -4,7 +4,7 @@
     <ul class="sww-blog-list-container">
       <li v-for="(item,index) in blogList" :key="index" :class="'sww-blog-list-item item'+item.type">
         <div class="header sww-clr-float">
-          <h4 class="title sww-text-ellipsis" :title="item.title">{{item.title}}</h4>
+          <router-link :to="'/blog/'+item.id"><h4 class="title sww-text-ellipsis" :title="item.title">{{item.title}}</h4></router-link>
           <div class="tagContainer">
             <span class="bg"></span>
             <p>{{item.type>0?'转载':'原创'}}</p>
@@ -42,6 +42,7 @@ export default {
       dateformat: 'yyyy/MM/dd hh:mm',
       blogList: [
         {
+          id: '9018-827d-sk13-98sk',
           title: 'Title1',
           author: 'David',
           type: 1,
@@ -54,6 +55,7 @@ export default {
           ]
         },
         {
+          id: '1y27-0ls9-skzp-02kz',
           title: 'Title2',
           author: 'David',
           type: 0,
@@ -66,6 +68,7 @@ export default {
           ]
         },
         {
+          id: '198s-1pqi-sj9x-9s91',
           title: '很长很长很长很长很长很长很长很长很长很长很长很长很长很长的标题',
           author: 'David',
           type: 1,
@@ -78,6 +81,7 @@ export default {
           ]
         },
         {
+          id: 'ya71-zmv9-02nc-oz91-03k1',
           title: 'Title2',
           author: 'David',
           type: 1,

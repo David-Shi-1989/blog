@@ -5,6 +5,7 @@ import Tourism from '@/page/Tourism'
 import Video from '@/page/Video'
 import NotFound from '@/page/404'
 import BlogList from '@/page/blog/blog-list'
+import BlogItem from '@/page/blog/blog-item'
 
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/video',
       name: 'Video',
       component: Video
+    },
+    {
+      path: '/blog/:id',
+      name: 'BlogItem',
+      component: BlogItem
     },
     {
       path: '/blog',
