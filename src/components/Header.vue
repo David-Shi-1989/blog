@@ -27,7 +27,29 @@ export default {
       ]
     }
   },
+  created () {
+    this.initActiveIdx()
+  },
   methods: {
+    initActiveIdx () {
+      let path = this.$route.fullPath
+      var idx = 0
+      if (path === '/') {
+        idx = 0
+      } else {
+        for (let i = 0; i < this.menusArr.length; i++) {
+          if (this.menusArr[i].to !== '/' && path.indexOf(this.menusArr[i].to) > -1) {
+            idx = i
+            break
+          }
+        }
+      }
+      var me = this
+      // 延迟0.5s赋值,有动态效果,提高用户体验
+      setTimeout(function () {
+        me.activeMenuIdx = idx
+      }, 500)
+    },
     onMenuItemClick (idx) {
       idx = parseInt(idx)
       if (!isNaN(idx) && idx > -1 && idx < this.menusArr.length) {
