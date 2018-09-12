@@ -30,12 +30,7 @@ export default {
     return {
       isSideBarOpen: true,
       activeMenuIdx: 0,
-      menusArr: [
-        {title: '主页', to: '/', icon: 'fa fa-object-group', badge: 0},
-        {title: '博客', to: '/', icon: 'fa fa-space-shuttle', badge: 8},
-        {title: '照片', to: '/', icon: 'fa fa-thermometer', badge: 3},
-        {title: '心情', to: '/', icon: 'fa fa-tty', badge: 0}
-      ]
+      menusArr: this.$store.getters.getMenus
     }
   },
   methods: {

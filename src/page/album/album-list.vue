@@ -1,5 +1,6 @@
 <template>
   <div class="x-main">
+    <div></div>
     <ul class="sww-album-ul sww-clr-float">
       <li>
         <p class="sww-album-title">活动图片</p>
