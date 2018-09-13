@@ -3,7 +3,7 @@
     <div></div>
     <ul class="sww-album-ul sww-clr-float">
       <li>
-        <p class="sww-album-title">活动图片</p>
+        <router-link class="sww-album-title" to="/album/123">活动图片</router-link>
         <p class="sww-album-count"><span>1</span>张</p>
         <table class="sww-album-tb sww-album-tb-1">
           <tbody>
@@ -110,6 +110,7 @@ ul.sww-album-ul > li .sww-album-title {
   color:#333;
   height: 1.5rem;
   line-height: 1.5rem;
+  text-decoration: none;
 }
 ul.sww-album-ul > li .sww-album-count{
   font-size: 0.6rem;

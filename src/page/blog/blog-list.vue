@@ -104,7 +104,7 @@ export default {
   position: relative;
 }
 ul.sww-blog-list-container{
-  width: 50rem;
+  /* width: 50rem; */
   margin: 0 auto;
 }
 ul.sww-blog-list-container > li {

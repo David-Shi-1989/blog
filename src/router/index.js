@@ -7,6 +7,7 @@ import NotFound from '@/page/404'
 import BlogList from '@/page/blog/blog-list'
 import BlogItem from '@/page/blog/blog-item'
 import AlbumList from '@/page/album/album-list'
+import AlbumItem from '@/page/album/album-item'
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ export default new Router({
       path: '/album',
       name: 'Album',
       component: AlbumList
+    },
+    {
+      path: '/album/:id',
+      name: 'AlbumItem',
+      component: AlbumItem
     },
     {
       path: '/*',
