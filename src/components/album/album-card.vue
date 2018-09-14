@@ -2,7 +2,7 @@
   <div>
     <router-link class="sww-album-title" to="/album/123">{{title}}</router-link>
     <p class="sww-album-count"><span>{{count}}</span>张</p>
-    <table :class="['sww-album-tb','sww-album-tb-'+disModeClass]">
+    <table :class="['sww-cpn-album-card-tb','sww-cpn-album-card-tb-'+disModeClass]">
       <tbody v-if="disModeClass=='1'">
         <tr>
           <td><div :style="{backgroundImage:'url(\''+imgArr[0]+'\')'}"></div></td>
@@ -124,58 +124,58 @@ export default {
 .sww-album-count span{
   margin-right: 0.15rem;
 }
-.sww-album-tb{
+.sww-cpn-album-card-tb{
   --tb-height: 5rem;
   margin-top: 0.5rem;
   border-collapse:collapse;
 }
-.sww-album-tb div{
+.sww-cpn-album-card-tb div{
   background-position: 50% 50%;
   background-size: cover;
   border: 0.05rem solid #ddd;
   box-sizing: border-box;
 }
-.sww-album-tb.sww-album-tb-1 td div {
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-1 td div {
   height: var(--tb-height);
   width:  calc(var(--card-width) - 1rem);
 }
-.sww-album-tb.sww-album-tb-2-h td div{
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-2-h td div{
   height: calc(var(--tb-height) / 2);
   width:  calc(var(--card-width) - 1rem);
 }
-.sww-album-tb.sww-album-tb-2-v td div{
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-2-v td div{
   height: calc(var(--tb-height));
   width:  calc((var(--card-width) - 1rem - 0.1rem) / 2);
 }
-.sww-album-tb.sww-album-tb-2-v tr td:first-child div {
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-2-v tr td:first-child div {
   margin-right: 0.2rem;
 }
-.sww-album-tb.sww-album-tb-3 td[rowspan='2'] > div {
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-3 td[rowspan='2'] > div {
   height: var(--tb-height);
   width: calc(((var(--card-width) - 1rem) / 2) - 0.1rem);
 }
-.sww-album-tb.sww-album-tb-3 td:not([rowspan='2']) div {
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-3 td:not([rowspan='2']) div {
   height: calc(var(--tb-height) / 2);
   width: calc(((var(--card-width) - 1rem) / 2) - 0.1rem);
   margin-left: 0.2rem;
 }
-.sww-album-tb.sww-album-tb-4 td div{
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-4 td div{
   height: calc((var(--tb-height)) / 2);
   width:  calc((var(--card-width) - 1rem - 0.1rem) / 2);
 }
-.sww-album-tb.sww-album-tb-4 tr td:first-child div {
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-4 tr td:first-child div {
   margin-right: 0.2rem;
 }
-.sww-album-tb.sww-album-tb-5 td[rowspan='2'] div {
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-5 td[rowspan='2'] div {
   height: calc(var(--tb-height));
   width: calc((var(--card-width) - 1rem - 0.1rem) / 2);
   margin-right: 0.2rem;
 }
-.sww-album-tb.sww-album-tb-5 td:not([rowspan='2']) div {
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-5 td:not([rowspan='2']) div {
   height: calc(var(--tb-height) / 2);
   width: calc((var(--card-width) - 1rem - 0.1rem) / 4);
 }
-.sww-album-tb.sww-album-tb-6 td div {
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-6 td div {
   height: calc(var(--tb-height) / 2);
    width: calc((var(--card-width) - 1rem - 0.1rem) / 3);
 }
