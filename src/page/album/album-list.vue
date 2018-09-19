@@ -1,6 +1,6 @@
 <template>
   <div class="x-main">
-    <div class="sww-album-info">
+    <div class="sww-page-header">
       <span>18相册</span><span>520张</span>
     </div>
     <ul class="sww-album-ul sww-clr-float">
@@ -107,21 +107,5 @@ ul.sww-album-ul > li {
   float: left;
   margin-right: .5rem;
   margin-bottom: .5rem;
-}
-.sww-album-info{
-  background-color: #fff;
-  margin: 0.5rem auto;
-  padding: 0.6rem;
-  border: 0.05rem solid #bbb;
-  /* box-shadow: 0 0 0.2rem #ccc; */
-}
-.sww-album-info > span{
-  font-size: 0.7rem;
-  color: #777;
-  margin: 0 0 0 0.7rem;
-}
-.sww-album-info > span::after{
-  content: "|";
-  margin-left: 0.7rem;
 }
 </style>
