@@ -19,6 +19,7 @@ body {
   --color-warning: #ff9900;
   --color-error: #ed4014;
   --color-info:#2db7f5;
+  --color-linkable: #3b73af;
 }
 ul {
   list-style: none;
@@ -70,12 +71,12 @@ ul.sww-ul-sww-clr-float::after{
   border: 0.05rem solid #ccc;
   /* box-shadow: 0 0 0.2rem #ccc; */
 }
-.sww-page-header > span{
+.sww-page-header.sww-page-header-statistic > span{
   font-size: 0.7rem;
   color: #999;
   margin: 0 0 0 0.7rem;
 }
-.sww-page-header > span::after{
+.sww-page-header.sww-page-header-statistic > span::after{
   content: "|";
   margin-left: 0.7rem;
 }

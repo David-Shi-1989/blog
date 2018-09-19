@@ -8,6 +8,8 @@ import BlogList from '@/page/blog/blog-list.1'
 import BlogItem from '@/page/blog/blog-item'
 import AlbumList from '@/page/album/album-list'
 import AlbumItem from '@/page/album/album-item'
+import DemoList from '@/page/demo/demo-list'
+import DemoItem from '@/page/demo/demo-item'
 
 Vue.use(Router)
 
@@ -47,6 +49,16 @@ export default new Router({
       path: '/album/:id',
       name: 'AlbumItem',
       component: AlbumItem
+    },
+    {
+      path: '/demo',
+      name: 'DemoList',
+      component: DemoList
+    },
+    {
+      path: '/demo/:id',
+      name: 'DemoItem',
+      component: DemoItem
     },
     {
       path: '/*',

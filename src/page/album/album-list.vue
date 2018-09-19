@@ -1,6 +1,6 @@
 <template>
   <div class="x-main">
-    <div class="sww-page-header">
+    <div class="sww-page-header sww-page-header-statistic">
       <span>18相册</span><span>520张</span>
     </div>
     <ul class="sww-album-ul sww-clr-float">

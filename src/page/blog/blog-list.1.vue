@@ -1,9 +1,9 @@
 <template>
   <div class="x-main">
-    <div class="sww-page-header">
+    <div class="sww-page-header sww-page-header-statistic">
       <span>7分类</span><span>71篇</span>
     </div>
-    <div class="sww-page-main">
+    <div class="sww-page-main sww-clr-float">
       <ul class="sww-blog-list-c2">
         <li v-for="(item,index) in blogList" :key="index" :class="(item.type==0?'sww-blog-type-0':'sww-blog-type-1') + ' sww-clr-float'">
           <span :class="['sww-blog-span','sww-blog-from','sww-blog-from-'+(item.type)]">{{(item.type==0?'转载':'原创')}}</span>
@@ -11,14 +11,15 @@
           <span class="sww-blog-span sww-blog-datetime">{{(new Date(item.createTime)).format(dateformat)}}</span>
         </li>
       </ul>
+      <div class="sww-float-right" style="margin-top:0.5rem;"><cptPaging v-model="dataCount"></cptPaging></div>
     </div>
   </div>
 </template>
 
 <script>
+import cptPaging from '@/components/common/cpt-paging'
 export default {
-  name: 'HelloWorld',
-  components: {},
+  components: {cptPaging},
   data () {
     return {
       dateformat: 'yyyy/MM/dd hh:mm',
@@ -75,7 +76,8 @@ export default {
             {name: 'CSS', id: 3}
           ]
         }
-      ]
+      ],
+      dataCount: 122
     }
   }
 }
@@ -259,6 +261,7 @@ ul.sww-blog-list-container > li .tags > span:hover{
   float: left;
   width: calc(100% - 1.5rem - 7rem - 1rem);
   text-decoration: none;
+  color: var(--color-linkable);
 }
 .sww-blog-list-c2 > li .sww-blog-datetime{
   float: right;
