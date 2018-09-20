@@ -11,7 +11,9 @@
           <span class="sww-blog-span sww-blog-datetime">{{(new Date(item.createTime)).format(dateformat)}}</span>
         </li>
       </ul>
-      <div class="sww-float-right" style="margin-top:0.5rem;"><cptPaging v-model="dataCount"></cptPaging></div>
+      <div class="sww-float-right" style="margin-top:0.5rem;">
+        <cptPaging v-model="dataCount" @currentChange="onPagingCurrentChange"></cptPaging>
+      </div>
     </div>
   </div>
 </template>
@@ -77,7 +79,12 @@ export default {
           ]
         }
       ],
-      dataCount: 122
+      dataCount: 1112
+    }
+  },
+  methods: {
+    onPagingCurrentChange (newVal, oldVal) {
+      console.log('paging current change to ' + newVal)
     }
   }
 }

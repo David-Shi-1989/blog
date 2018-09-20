@@ -2,26 +2,35 @@
   <div class="sww-cpt-paging">
     <span class="sww-cpt-paging-total">共<span class="css-val">{{total}}</span>条</span>
     <span class="sww-cpt-paging-current">
-      <i class="fa fa-angle-left" title="上一页"></i>
-      <span v-for="(item,idx) in calPageArr" :key="idx" :class="item.class" @click="onPageItemClick(item.val)">
+      <span class="sww-cpt-paging-btn" @click="onPreviousPageBtnClick">
+        <i class="fa fa-angle-left" title="上一页"></i>
+      </span>
+      <span v-for="(item,idx) in calPageArr" :key="idx"
+        :class="item.class" @click="onPageItemClick(item.val)" :title="'第'+item.val+'页'">
         {{item.val}}
       </span>
-      <!-- <span :class="['css-val', current==1?'active':'']">1</span>
-      <span class="css-val">2</span>
-      <span class="css-val">3</span>
-      <i class="fa fa-ellipsis-h"></i>
-      <span class="css-val">15</span> -->
-      <i class="fa fa-angle-right" title="下一页"></i>
+      <span class="sww-cpt-paging-btn" @click="onNextPageBtnClick">
+        <i class="fa fa-angle-right" title="下一页"></i>
+      </span>
+    </span>
+    <span class="sww-cpt-paging-input">
+      <span>跳至</span>
+      <span style="width:2rem;display:inline-block;"><xInput type="text" v-model="inputCurrent" @on-change="onInputCurrentChange"></xInput></span>
+      <span>页</span>
     </span>
   </div>
 </template>
 
 <script>
+import xInput from '@/components/common/cpt-input'
 export default {
+  components: {xInput},
   data () {
     return {
       sumPage: 0,
-      total: 0
+      total: 0,
+      current: 1,
+      inputCurrent: 1
     }
   },
   props: {
@@ -29,10 +38,6 @@ export default {
     value: {
       type: Number,
       default: 0
-    },
-    current: {
-      type: Number,
-      default: 1
     },
     pageSize: {
       type: Number,
@@ -47,6 +52,25 @@ export default {
     onPageItemClick (val) {
       if (!isNaN(val) && val > 0 && val <= this.sumPage) {
         this.current = parseInt(val)
+      }
+    },
+    onNextPageBtnClick () {
+      let newCurrent = this.current + 1
+      if (newCurrent < this.sumPage) {
+        this.current = newCurrent
+      }
+    },
+    onPreviousPageBtnClick () {
+      let newCurrent = this.current - 1
+      if (newCurrent > 0) {
+        this.current = newCurrent
+      }
+    },
+    onInputCurrentChange () {
+      if (!isNaN(this.inputCurrent) && this.inputCurrent > 0 && this.inputCurrent <= this.sumPage) {
+        this.current = parseInt(this.inputCurrent)
+      } else {
+        this.inputCurrent = this.current
       }
     }
   },
@@ -66,22 +90,20 @@ export default {
         arr.push(obj)
       }
       // 全部push进去后再根据current来处理
-      debugger
-      for (let i = 1; i <= this.current - 2; i++) {
-        arr[i].isRemoved = true
+      for (let j = 1; j < this.current - 2; j++) {
+        arr[j].isRemoved = true
       }
-      for (let i = this.current + 1; i < this.sumPage - 1; i++) {
-        arr[i].isRemoved = true
+      for (let k = this.current + 1; k < this.sumPage - 1; k++) {
+        arr[k].isRemoved = true
       }
       let result = arr.filter(function (item) {
         return !(item.isRemoved === true)
       })
       for (let i = 1; i < result.length; i++) {
         if (result[i].val === (result[i - 1].val + 1)) {
-
         } else {
           result = result.slice(0, i).concat(ellipsis, result.slice(i))
-          break
+          i++
         }
       }
       return result
@@ -90,6 +112,10 @@ export default {
   watch: {
     total (newVal) {
       this.$emit('input', newVal)
+    },
+    current (newVal, oldValue) {
+      this.inputCurrent = newVal
+      this.$emit('currentChange', newVal, oldValue)
     }
   }
 }
@@ -101,8 +127,14 @@ export default {
   color:#666;
   padding: 0.1rem 0;
 }
+.sww-cpt-paging-total{
+  margin-right: 0.5rem;
+}
 .sww-cpt-paging-total .css-val{
   margin: 0 0.2rem;
+}
+.sww-cpt-paging-current{
+  --span-width: 0.9rem;
 }
 .sww-cpt-paging-current > i.fa{
   cursor: pointer;
@@ -110,9 +142,9 @@ export default {
 }
 .sww-cpt-paging-current > .css-val{
   display: inline-block;
-  width: 0.7rem;
-  height: 0.7rem;
-  line-height: 0.7rem;
+  width: var(--span-width);
+  height: var(--span-width);
+  line-height: var(--span-width);
   text-align: center;
 }
 .sww-cpt-paging-current > .css-val.active{
@@ -122,5 +154,19 @@ export default {
 }
 .sww-cpt-paging-current > .css-val:not(.active){
   cursor: pointer;
+}
+.sww-cpt-paging-current .fa.fa-ellipsis-h{
+  margin: 0 0.3rem;
+}
+.sww-cpt-paging-current .sww-cpt-paging-btn{
+  display: inline-block;
+  width: var(--span-width);
+  height: var(--span-width);
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.sww-cpt-paging-input{
+  display: inline-block;
 }
 </style>
