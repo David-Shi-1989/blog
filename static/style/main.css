@@ -20,6 +20,12 @@ body {
   --color-error: #ed4014;
   --color-info:#2db7f5;
   --color-linkable: #3b73af;
+  --color-text-1: #222;
+  --color-text-2: #444;
+  --color-text-3: #666;
+  --color-text-4: #888;
+  --color-text-5: #aaa;
+  --color-text-6: #ccc;
 }
 ul {
   list-style: none;

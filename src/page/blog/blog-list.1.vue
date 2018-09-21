@@ -138,7 +138,7 @@ ul.sww-blog-list-container > li .header{
 ul.sww-blog-list-container > li .header .title{
   height: 2rem;
   line-height: 2rem;
-  color: #444;
+  color: var(--color-text-2);
   display: block;
   width: calc(100% - 5rem);
   float: left;
@@ -179,13 +179,13 @@ ul.sww-blog-list-container > li .header .tagContainer span.bg{
 ul.sww-blog-list-container > li i{
   font-size: var(--font-size);
   margin-right: 0.3rem;
-  color: #777;
+  color: var(--color-text-4);
 }
 ul.sww-blog-list-container > li .author,
 ul.sww-blog-list-container > li .tagContainer,
 ul.sww-blog-list-container > li .time{
   font-size: var(--font-size);
-  color: #777;
+  color: var(--color-text-4);
 }
 ul.sww-blog-list-container > li .content{
   height: 4rem;
@@ -210,7 +210,7 @@ ul.sww-blog-list-container > li .tags{
 ul.sww-blog-list-container > li .tags > span{
   font-size: 0.6rem;
   display: inline-block;
-  color:#555;
+  color:var(--color-text-3);
   padding: 0.05rem 0.2rem;
   margin-right: 0.2rem;
   cursor: pointer;
@@ -234,7 +234,7 @@ ul.sww-blog-list-container > li .tags > span:hover{
   cursor: pointer;
 }
 .sww-blog-list-c2 > li:hover .sww-blog-datetime{
-  color: #777;
+  color: var(--color-text-4);
 }
 .sww-blog-list-c2 > li:hover .sww-blog-title{
   text-decoration: underline;
@@ -243,7 +243,7 @@ ul.sww-blog-list-container > li .tags > span:hover{
   display: block;
   height: var(--line-height);
   line-height: var(--line-height);
-  color:#222;
+  color:var(--color-text-1);
   transition: all 0.3s;
 }
 .sww-blog-list-c2 > li > .sww-blog-from{

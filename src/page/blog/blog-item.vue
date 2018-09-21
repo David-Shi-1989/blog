@@ -33,7 +33,7 @@ export default {
 
 <style scoped>
 .sww-blog-item-content{
-  color:#444;
+  color: var(--color-text-2);
   font-size: 0.7rem;
 }
 </style>

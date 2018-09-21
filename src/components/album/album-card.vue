@@ -110,14 +110,14 @@ export default {
 .sww-album-title {
   font-size: 0.8rem;
   font-weight: bolder;
-  color:#333;
+  color:var(--color-linkable);
   height: 1.5rem;
   line-height: 1.5rem;
   text-decoration: none;
 }
 .sww-album-count{
   font-size: 0.6rem;
-  color:#777;
+  color:var(--color-text-4);
   height: 1rem;
   line-height: 1rem;
 }

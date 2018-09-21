@@ -94,7 +94,7 @@ export default {
 }
 .sww-album-ul-list li > p{
   font-size: 0.55rem;
-  color: #777;
+  color: var(--color-text-4);
   box-sizing: border-box;
   padding: 0.2rem 0.1rem;
   border: 0.05rem solid #ddd;

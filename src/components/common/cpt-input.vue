@@ -58,7 +58,7 @@ export default {
     border-radius: 0.15rem;
     width: 100%;
     font-size: 0.7rem;
-    color:#495660;
+    color:var(--color-text-2);
     background-color: #fff;
     background-image: none;
     cursor: text;
