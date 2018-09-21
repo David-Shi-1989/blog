@@ -1,16 +1,75 @@
 <template>
   <div class="x-main">
-    <h3>album</h3><span>{{this.id}}</span>
+    <div class="sww-page-header sww-page-header-statistic">
+      {{this.title}}
+    </div>
+    <div class="sww-page-main">
+      <div class="sww-page-main-info">
+        <span><i class="fa fa-picture-o"></i>23张</span>
+        <span><i class="fa fa-eye"></i>123</span>
+        <span><i class="fa fa-heart"></i>21</span>
+      </div>
+      <div class="sww-album-item-content">
+        <ul class="sww-album-ul-list sww-clr-float">
+          <li v-for="(item,idx) in list" :key="idx">
+            <div class="sww-album-ul-list-img-wrap" :style="'background-image:url(\''+item.url+'\')'"></div>
+            <p>{{item.description}}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
   components: {},
   data () {
     return {
-      id: null
+      title: 'album Name',
+      id: null,
+      list: [
+        {
+          url: '../../../static/image/album/img_1.jpg',
+          description: 'description1'
+        },
+        {
+          url: '../../../static/image/album/img_2.jpg',
+          description: 'description2'
+        },
+        {
+          url: '../../../static/image/album/img_3.jpg',
+          description: 'description3'
+        },
+        {
+          url: '../../../static/image/album/img_4.jpg',
+          description: 'description4'
+        },
+        {
+          url: '../../../static/image/album/img_5.jpg',
+          description: 'description5'
+        },
+        {
+          url: '../../../static/image/album/img_6.jpg',
+          description: 'description6'
+        },
+        {
+          url: '../../../static/image/album/img_7.jpg',
+          description: 'description7'
+        },
+        {
+          url: '../../../static/image/album/img_8.jpg',
+          description: 'description8'
+        },
+        {
+          url: '../../../static/image/album/img_9.jpg',
+          description: 'description9'
+        },
+        {
+          url: '../../../static/image/album/img_10.jpg',
+          description: 'description10'
+        }
+      ]
     }
   },
   created () {
@@ -20,5 +79,25 @@ export default {
 </script>
 
 <style scoped>
-
+.sww-album-ul-list > li{
+  float: left;
+  margin: 0.5rem 0.5rem 0 0;
+}
+.sww-album-ul-list li > div.sww-album-ul-list-img-wrap{
+  width: 8rem;
+  height: 5rem;
+  cursor: pointer;
+  background-size: cover;
+  background-position: 50% 50%;
+  border: 0.05rem solid #ddd;
+  box-sizing: border-box;
+}
+.sww-album-ul-list li > p{
+  font-size: 0.55rem;
+  color: #777;
+  box-sizing: border-box;
+  padding: 0.2rem 0.1rem;
+  border: 0.05rem solid #ddd;
+  border-top-width: 0;
+}
 </style>
