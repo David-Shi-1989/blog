@@ -63,6 +63,16 @@ ul.sww-ul-sww-clr-float::after{
 .sww-float-right{
   float: right;
 }
+.sww-width-full {
+  width: 100%;
+}
+.sww-height-full {
+  height: 100%;
+}
+.sww-size-full {
+  width: 100%;
+  height: 100%;
+}
 /*超出省略号*/
 .sww-text-ellipsis{
   white-space: nowrap;

@@ -12,7 +12,11 @@
       <div class="sww-album-item-content">
         <ul class="sww-album-ul-list sww-clr-float">
           <li v-for="(item,idx) in list" :key="idx">
-            <div class="sww-album-ul-list-img-wrap" :style="'background-image:url(\''+item.url+'\')'"></div>
+            <div
+              class="sww-album-ul-list-img-wrap"
+              :style="'background-image:url(\''+item.url+'\')'"
+              @click="onImageItemClick(idx)"
+              ></div>
             <p>{{item.description}}</p>
           </li>
         </ul>
@@ -30,42 +34,52 @@ export default {
       id: null,
       list: [
         {
+          id: 'a1',
           url: '../../../static/image/album/img_1.jpg',
           description: 'description1'
         },
         {
+          id: 'a2',
           url: '../../../static/image/album/img_2.jpg',
           description: 'description2'
         },
         {
+          id: 'a3',
           url: '../../../static/image/album/img_3.jpg',
           description: 'description3'
         },
         {
+          id: 'a4',
           url: '../../../static/image/album/img_4.jpg',
           description: 'description4'
         },
         {
+          id: 'a5',
           url: '../../../static/image/album/img_5.jpg',
           description: 'description5'
         },
         {
+          id: 'a6',
           url: '../../../static/image/album/img_6.jpg',
           description: 'description6'
         },
         {
+          id: 'a7',
           url: '../../../static/image/album/img_7.jpg',
           description: 'description7'
         },
         {
+          id: 'a8',
           url: '../../../static/image/album/img_8.jpg',
           description: 'description8'
         },
         {
+          id: 'a9',
           url: '../../../static/image/album/img_9.jpg',
           description: 'description9'
         },
         {
+          id: 'a10',
           url: '../../../static/image/album/img_10.jpg',
           description: 'description10'
         }
@@ -74,6 +88,11 @@ export default {
   },
   created () {
     this.id = this.$route.params.id
+  },
+  methods: {
+    onImageItemClick () {
+      this.$store.commit('setIsShowImageViewLayer', true)
+    }
   }
 }
 </script>

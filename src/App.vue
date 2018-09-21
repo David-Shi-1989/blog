@@ -11,6 +11,7 @@
         <div v-show="isShowLoading" id="sww_loading">Loading...</div>
       </div>
     </div>
+    <xImageView></xImageView>
   </div>
 </template>
 
@@ -18,9 +19,10 @@
 import xHeader from '@/components/Header'
 import xSideBarLeft from '@/components/SideBarLeft'
 import xSideBarRight from '@/components/SideBarRight'
+import xImageView from '@/components/image-view'
 export default {
   name: 'App',
-  components: {xHeader, xSideBarLeft, xSideBarRight},
+  components: {xHeader, xSideBarLeft, xSideBarRight, xImageView},
   data () {
     var isShowLoading = this.$store.getters.isLoading
     return {
