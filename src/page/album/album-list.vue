@@ -1,9 +1,21 @@
 <template>
-  <div class="x-main">
+  <div class="sww-page-wrap">
     <div class="sww-page-header sww-page-header-statistic">
       <span>18相册</span><span>520张</span>
     </div>
-    <ul class="sww-album-ul sww-clr-float">
+    <div class="sww-page-main">
+      <ul class="sww-album-ul sww-clr-float">
+        <li v-for="(item,idx) in list" :key="idx">
+          <albumCard
+            :id="item.id"
+            :title="item.title"
+            :count="item.count"
+            :disMode="item.disMode"
+            :imgArr="item.imgArr"></albumCard>
+        </li>
+      </ul>
+    </div>
+    <!-- <ul class="sww-album-ul sww-clr-float">
       <li v-for="(item,idx) in list" :key="idx">
         <albumCard
           :id="item.id"
@@ -12,7 +24,7 @@
           :disMode="item.disMode"
           :imgArr="item.imgArr"></albumCard>
       </li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
@@ -113,7 +125,7 @@ ul.sww-album-ul > li {
   border: 0.05rem solid #efefef;
   box-sizing: border-box;
   padding: 0.5rem;
-  background-color: #fff;
+  background-color: #f9f9f9;
   float: left;
   margin-right: .5rem;
   margin-bottom: .5rem;

@@ -1,5 +1,5 @@
 <template>
-  <div class="x-main">
+  <div class="sww-page-wrap">
     <h2>Home</h2>
   </div>
 </template>
@@ -16,6 +16,6 @@ export default {
 </script>
 
 <style scoped>
-div.x-main{
+div.sww-page-wrap{
 }
 </style>

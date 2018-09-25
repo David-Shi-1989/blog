@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="sww-album-wrap">
     <router-link class="sww-album-title" :to="'/album/'+id">{{title}}</router-link>
     <p class="sww-album-count"><span>{{count}}</span>张</p>
     <table :class="['sww-cpn-album-card-tb','sww-cpn-album-card-tb-'+disModeClass]">

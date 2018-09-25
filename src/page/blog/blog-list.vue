@@ -1,5 +1,5 @@
 <template>
-  <div class="x-main">
+  <div class="sww-page-wrap">
     <h2>Blog List</h2>
     <ul class="sww-blog-list-container">
       <li v-for="(item,index) in blogList" :key="index" :class="'sww-blog-list-item item'+item.type">
@@ -100,7 +100,7 @@ export default {
 </script>
 
 <style scoped>
-.x-main {
+.sww-page-wrap {
   position: relative;
 }
 ul.sww-blog-list-container{

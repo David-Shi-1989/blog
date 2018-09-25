@@ -1,11 +1,11 @@
 <template>
-  <div class="x-main">
+  <div class="sww-page-wrap">
     <div class="sww-page-header sww-page-header-statistic">
       {{this.title}}
     </div>
     <div class="sww-page-main">
       <div class="sww-page-main-info">
-        <span><i class="fa fa-picture-o"></i>23张</span>
+        <span><i class="fa fa-picture-o"></i>{{list.length}}张</span>
         <span><i class="fa fa-eye"></i>123</span>
         <span><i class="fa fa-heart"></i>21</span>
       </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="x-main">
+  <div class="sww-page-wrap">
     <div class="sww-page-header sww-page-header-statistic">
       <span>18作品</span><span>520281行代码</span>
     </div>

@@ -13,6 +13,7 @@ html, body{
 
 body {
   --header-height: 2.8rem;
+  --page-header-height: 2.5rem;
   --header-bg: #111933;
   --header-bg2: #303850;
   --color-success: #19be6b;
@@ -80,7 +81,13 @@ ul.sww-ul-sww-clr-float::after{
   text-overflow: ellipsis;
 }
 /*普通页面的头部卡片,如blogList,albumList的统计卡片*/
+.sww-page-wrap{
+  width: 100%;
+  height: calc(100% - var(--header-height) - 1rem);
+}
 .sww-page-header{
+  box-sizing: border-box;
+  height: var(--page-header-height);
   background-color: #fff;
   margin: 0.5rem auto;
   padding: 0.6rem;
@@ -97,6 +104,7 @@ ul.sww-ul-sww-clr-float::after{
   margin-left: 0.7rem;
 }
 .sww-page-main{
+  height: calc(100% - var(--page-header-height) - 1rem);
   background-color: #fff;
   border: 0.05rem solid #e5e5e5;
   padding: 1rem;

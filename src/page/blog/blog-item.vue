@@ -1,5 +1,5 @@
 <template>
-  <div class="x-main">
+  <div class="sww-page-wrap">
     <div class="sww-page-header">
       <span>{{this.id}}</span>
     </div>

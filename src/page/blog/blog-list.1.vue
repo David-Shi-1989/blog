@@ -1,5 +1,5 @@
 <template>
-  <div class="x-main">
+  <div class="sww-page-wrap">
     <div class="sww-page-header sww-page-header-statistic">
       <span>7分类</span><span>71篇</span>
     </div>
@@ -91,137 +91,9 @@ export default {
 </script>
 
 <style scoped>
-.x-main {
+.sww-page-wrap {
   position: relative;
 }
-ul.sww-blog-list-container{
-  /* width: 50rem; */
-  margin: 0 auto;
-}
-ul.sww-blog-list-container > li {
-  --font-size:0.7rem;
-  background-color: #fff;
-  padding:0.7rem 0;
-  box-sizing: border-box;
-  border: 0.05rem solid #e8e8e8;
-  transition: all 0.2s;
-  cursor: pointer;
-  margin-bottom: 1rem;
-}
-/*原创*/
-ul.sww-blog-list-container > li.sww-blog-list-item.item0 span.bg{
-  border-color: transparent var(--color-error) transparent transparent;
-}
-/*转载*/
-ul.sww-blog-list-container > li.sww-blog-list-item.item1 span.bg{
-  border-color: transparent var(--color-info) transparent transparent;
-}
-ul.sww-blog-list-container > li:hover{
-  /* box-shadow: 0 0 0.1rem #999; */
-}
-ul.sww-blog-list-container > li .sww-blog-item-info{
-  margin-top: 0.2rem;
-  padding: 0 0.5rem;
-  box-sizing: border-box;
-}
-ul.sww-blog-list-container > li .sww-blog-item-info > div{
-  float: left;
-  width: 33.333%;
-  height: 1rem;
-  line-height: 1rem;
-}
-ul.sww-blog-list-container > li .header{
-  position: relative;
-  height: 2rem;
-  line-height: 2rem;
-}
-ul.sww-blog-list-container > li .header .title{
-  height: 2rem;
-  line-height: 2rem;
-  color: var(--color-text-2);
-  display: block;
-  width: calc(100% - 5rem);
-  float: left;
-  box-sizing: border-box;
-  padding: 0 2rem;
-}
-ul.sww-blog-list-container > li .header .tagContainer{
-  float: right;
-  margin-top: -0.7rem;
-  margin-right: 2rem;
-  position: relative;
-  width: 3rem;
-  height: 3rem;
-}
-ul.sww-blog-list-container > li .header .tagContainer p{
-  line-height: 1rem;
-  text-align: center;
-  position: relative;
-  z-index: 90;
-  top:0.2rem;
-  right: -2.8rem;
-  color:#fff;
-  font-size: 0.6rem;
-  letter-spacing: 0.1rem;
-}
-ul.sww-blog-list-container > li .header .tagContainer span.bg{
-  display: block;
-  position: absolute;
-  width:0;
-  height: 0;
-  border-width: 0 2.5rem 2.5rem;
-  border-style: solid;
-  /* border-color: transparent #888 transparent transparent; */
-  top:0;
-  left: 0;
-  z-index: 89;
-}
-ul.sww-blog-list-container > li i{
-  font-size: var(--font-size);
-  margin-right: 0.3rem;
-  color: var(--color-text-4);
-}
-ul.sww-blog-list-container > li .author,
-ul.sww-blog-list-container > li .tagContainer,
-ul.sww-blog-list-container > li .time{
-  font-size: var(--font-size);
-  color: var(--color-text-4);
-}
-ul.sww-blog-list-container > li .content{
-  height: 4rem;
-  font-size: 0.7rem;
-  text-indent: 1.3rem;
-  padding: 0.2rem 0.5rem;
-  border-color: #ccc;
-  border-style: dashed;
-  border-top-width: 0.05rem;
-  border-bottom-width: 0.05rem;
-  border-right-width: 0;
-  border-left-width: 0;
-
-}
-ul.sww-blog-list-container > li .tags{
-  padding: 0 0.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom-left-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
-
-}
-ul.sww-blog-list-container > li .tags > span{
-  font-size: 0.6rem;
-  display: inline-block;
-  color:var(--color-text-3);
-  padding: 0.05rem 0.2rem;
-  margin-right: 0.2rem;
-  cursor: pointer;
-  transition: all 0.2s;
-  border: 0.05rem solid #ccc;
-  transition: all 0.3s;
-}
-ul.sww-blog-list-container > li .tags > span:hover{
-  color:var(--color-info);
-}
-
 .sww-blog-list-c2{
   list-style: none;
 }
