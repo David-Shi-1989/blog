@@ -16,7 +16,7 @@
           </div>
         </div>
       </div>
-      <div class="sww-cpt-iv-thumbnail">
+      <div class="sww-cpt-iv-thumbnail" :id="domId.thumbnail">
         <div class="sww-clr-float" :style="{width: (list.length * (4 + 0.5) + 2)+'rem'}">
           <div
             v-for="(item,idx) in list"
@@ -58,7 +58,10 @@ export default {
         '../../static/image/album/img_9.jpg',
         '../../static/image/album/img_10.jpg'
       ],
-      activeIdx: 0
+      activeIdx: 0,
+      domId: {
+        thumbnail: 'sww_imageview_thumbnail'
+      }
     }
   },
   methods: {
@@ -90,10 +93,18 @@ export default {
   },
   watch: {
     activeIdx (newVal) {
-      let currentOffset = this.utils.screenSize.remToPx(this.activeIdx * 4.5)
+      let imgPerVal = this.utils.screenSize.remToPx(4.5) // 单个缩略图的宽度
+      let wrapPadding = this.utils.screenSize.remToPx(1) // padding为1rem
+      let currentOffset = imgPerVal * this.activeIdx
       let screenWidth = document.body.clientWidth
-      if (currentOffset > screenWidth) {
-        debugger
+      let thumbnailDom = $('#' + this.domId.thumbnail)
+      let scrollLeft = thumbnailDom.scrollLeft()
+      if (currentOffset > screenWidth + scrollLeft - imgPerVal - wrapPadding) {
+        let newScrollLeft = scrollLeft + imgPerVal
+        thumbnailDom.scrollLeft(newScrollLeft)
+      } else if (currentOffset < scrollLeft) {
+        let newScrollLeft = scrollLeft - imgPerVal
+        thumbnailDom.scrollLeft(newScrollLeft)
       }
     }
   }
@@ -171,6 +182,7 @@ export default {
   bottom: 0.5rem;
   padding: 0 1rem;
   overflow-x: auto;
+  transition: all 0.4s;
 }
 .sww-cpt-iv-thumbnail::-webkit-scrollbar{
   height: .2rem;
