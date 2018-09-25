@@ -5,7 +5,12 @@
     </div>
     <ul class="sww-album-ul sww-clr-float">
       <li v-for="(item,idx) in list" :key="idx">
-        <albumCard :title="item.title" :count="item.count" :disMode="item.disMode" :imgArr="item.imgArr"></albumCard>
+        <albumCard
+          :id="item.id"
+          :title="item.title"
+          :count="item.count"
+          :disMode="item.disMode"
+          :imgArr="item.imgArr"></albumCard>
       </li>
     </ul>
   </div>
@@ -14,12 +19,12 @@
 <script>
 import albumCard from '@/components/album/album-card'
 export default {
-  name: 'HelloWorld',
   components: {albumCard},
   data () {
     return {
       list: [
         {
+          id: 'a1',
           title: '算法图库',
           count: 3,
           disMode: 1,
@@ -29,6 +34,7 @@ export default {
           ]
         },
         {
+          id: 'a2',
           title: 'CSS样式图片库',
           count: 10,
           disMode: 2,
@@ -38,6 +44,7 @@ export default {
           ]
         },
         {
+          id: 'a3',
           title: '大屏素材图库',
           count: 5,
           disMode: 3,
@@ -48,6 +55,7 @@ export default {
           ]
         },
         {
+          id: 'a4',
           title: '大屏素材图库',
           count: 5,
           disMode: 4,
@@ -59,6 +67,7 @@ export default {
           ]
         },
         {
+          id: 'a5',
           title: '大屏素材图库',
           count: 5,
           disMode: 5,
@@ -71,6 +80,7 @@ export default {
           ]
         },
         {
+          id: 'a6',
           title: '大屏素材图库',
           count: 15,
           disMode: 6,

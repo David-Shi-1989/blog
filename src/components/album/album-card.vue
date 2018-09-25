@@ -1,67 +1,67 @@
 <template>
   <div>
-    <router-link class="sww-album-title" to="/album/123">{{title}}</router-link>
+    <router-link class="sww-album-title" :to="'/album/'+id">{{title}}</router-link>
     <p class="sww-album-count"><span>{{count}}</span>张</p>
     <table :class="['sww-cpn-album-card-tb','sww-cpn-album-card-tb-'+disModeClass]">
       <tbody v-if="disModeClass=='1'">
         <tr>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[0]+'\')'}"></div></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[0]+'\')'}"></router-link></td>
         </tr>
       </tbody>
       <tbody v-if="disModeClass=='2-h'">
         <tr>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[0]+'\')'}"></div></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[0]+'\')'}"></router-link></td>
         </tr>
         <tr>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[1]+'\')'}"></div></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[1]+'\')'}"></router-link></td>
         </tr>
       </tbody>
       <tbody v-if="disModeClass=='2-v'">
         <tr>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[0]+'\')'}"></div></td>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[1]+'\')'}"></div></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[0]+'\')'}"></router-link></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[1]+'\')'}"></router-link></td>
         </tr>
       </tbody>
       <tbody v-if="disModeClass=='3'">
         <tr>
-          <td rowspan="2"><div :style="{backgroundImage:'url(\''+imgArr[0]+'\')'}"></div></td>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[1]+'\')'}"></div></td>
+          <td rowspan="2"><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[0]+'\')'}"></router-link></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[1]+'\')'}"></router-link></td>
         </tr>
         <tr>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[2]+'\')'}"></div></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[2]+'\')'}"></router-link></td>
         </tr>
       </tbody>
       <tbody v-if="disModeClass=='4'">
         <tr>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[0]+'\')'}"></div></td>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[1]+'\')'}"></div></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[0]+'\')'}"></router-link></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[1]+'\')'}"></router-link></td>
         </tr>
         <tr>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[2]+'\')'}"></div></td>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[3]+'\')'}"></div></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[2]+'\')'}"></router-link></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[3]+'\')'}"></router-link></td>
         </tr>
       </tbody>
       <tbody v-if="disModeClass=='5'">
         <tr>
-          <td rowspan="2"><div :style="{backgroundImage:'url(\''+imgArr[0]+'\')'}"></div></td>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[1]+'\')'}"></div></td>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[2]+'\')'}"></div></td>
+          <td rowspan="2"><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[0]+'\')'}"></router-link></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[1]+'\')'}"></router-link></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[2]+'\')'}"></router-link></td>
         </tr>
         <tr>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[3]+'\')'}"></div></td>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[4]+'\')'}"></div></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[3]+'\')'}"></router-link></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[4]+'\')'}"></router-link></td>
         </tr>
       </tbody>
       <tbody v-if="disModeClass=='6'">
         <tr>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[0]+'\')'}"></div></td>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[1]+'\')'}"></div></td>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[2]+'\')'}"></div></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[0]+'\')'}"></router-link></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[1]+'\')'}"></router-link></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[2]+'\')'}"></router-link></td>
         </tr>
         <tr>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[3]+'\')'}"></div></td>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[4]+'\')'}"></div></td>
-          <td><div :style="{backgroundImage:'url(\''+imgArr[5]+'\')'}"></div></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[3]+'\')'}"></router-link></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[4]+'\')'}"></router-link></td>
+          <td><router-link class="css-img" :to="'/album/'+id" :style="{backgroundImage:'url(\''+imgArr[5]+'\')'}"></router-link></td>
         </tr>
       </tbody>
     </table>
@@ -87,6 +87,10 @@ export default {
     imgArr: {
       type: Array,
       default: () => []
+    },
+    id: {
+      type: [String, Number],
+      default: '123'
     }
   },
   data () {
@@ -129,53 +133,54 @@ export default {
   margin-top: 0.5rem;
   border-collapse:collapse;
 }
-.sww-cpn-album-card-tb div{
+.sww-cpn-album-card-tb .css-img{
+  display: block;
   background-position: 50% 50%;
   background-size: cover;
   border: 0.05rem solid #ddd;
   box-sizing: border-box;
 }
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-1 td div {
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-1 td .css-img {
   height: var(--tb-height);
   width:  calc(var(--card-width) - 1rem);
 }
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-2-h td div{
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-2-h td .css-img{
   height: calc(var(--tb-height) / 2);
   width:  calc(var(--card-width) - 1rem);
 }
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-2-v td div{
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-2-v td .css-img{
   height: calc(var(--tb-height));
   width:  calc((var(--card-width) - 1rem - 0.1rem) / 2);
 }
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-2-v tr td:first-child div {
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-2-v tr td:first-child .css-img {
   margin-right: 0.2rem;
 }
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-3 td[rowspan='2'] > div {
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-3 td[rowspan='2'] > .css-img {
   height: var(--tb-height);
   width: calc(((var(--card-width) - 1rem) / 2) - 0.1rem);
 }
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-3 td:not([rowspan='2']) div {
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-3 td:not([rowspan='2']) .css-img {
   height: calc(var(--tb-height) / 2);
   width: calc(((var(--card-width) - 1rem) / 2) - 0.1rem);
   margin-left: 0.2rem;
 }
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-4 td div{
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-4 td .css-img{
   height: calc((var(--tb-height)) / 2);
   width:  calc((var(--card-width) - 1rem - 0.1rem) / 2);
 }
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-4 tr td:first-child div {
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-4 tr td:first-child .css-img {
   margin-right: 0.2rem;
 }
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-5 td[rowspan='2'] div {
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-5 td[rowspan='2'] .css-img {
   height: calc(var(--tb-height));
   width: calc((var(--card-width) - 1rem - 0.1rem) / 2);
   margin-right: 0.2rem;
 }
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-5 td:not([rowspan='2']) div {
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-5 td:not([rowspan='2']) .css-img {
   height: calc(var(--tb-height) / 2);
   width: calc((var(--card-width) - 1rem - 0.1rem) / 4);
 }
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-6 td div {
+.sww-cpn-album-card-tb.sww-cpn-album-card-tb-6 td .css-img {
   height: calc(var(--tb-height) / 2);
    width: calc((var(--card-width) - 1rem - 0.1rem) / 3);
 }
