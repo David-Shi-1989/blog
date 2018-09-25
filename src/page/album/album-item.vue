@@ -90,8 +90,12 @@ export default {
     this.id = this.$route.params.id
   },
   methods: {
-    onImageItemClick () {
-      this.$store.commit('setIsShowImageViewLayer', true)
+    onImageItemClick (index) {
+      this.$store.commit('setIsShowImageViewLayer', {
+        isShow: true,
+        list: this.list,
+        activeIndex: parseInt(index)
+      })
     }
   }
 }

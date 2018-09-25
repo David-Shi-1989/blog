@@ -1,6 +1,7 @@
 <template>
   <div v-show="isShowLayer" class="sww-cpt-iv" tabindex="1" @keyup.left="onSwitchPreviousBtnClick" @keyup.right="onSwitchNextBtnClick">
     <div class="sww-size-full" style="position:relative">
+      <!-- 主图 -->
       <div class="sww-cpt-iv-img-wrap-0">
         <div class="sww-cpt-iv-img-wrap-1">
           <div class="sww-cpt-iv-img-wrap-2">
@@ -8,7 +9,7 @@
               <div class="sww-cpt-iv-btn" style="margin-right:1rem;">
                 <i class="fa fa-angle-left" @click="onSwitchPreviousBtnClick"></i>
               </div>
-              <img :src="list[activeIdx]">
+              <img v-if="list[activeIdx]&&list[activeIdx].url" :src="list[activeIdx].url">
               <div class="sww-cpt-iv-btn" style="margin-left:1rem;">
                 <i class="fa fa-angle-right" @click="onSwitchNextBtnClick"></i>
               </div>
@@ -16,17 +17,27 @@
           </div>
         </div>
       </div>
+      <!-- 文字说明 -->
+      <div class="sww-cpt-iv-des">
+        <span>{{this.activeIdx+1}}/{{this.list.length}}</span>
+        <span v-if="list[activeIdx]&&list[activeIdx].description">{{list[activeIdx].description}}</span>
+      </div>
+      <!-- 缩略图 -->
       <div class="sww-cpt-iv-thumbnail" :id="domId.thumbnail">
         <div class="sww-clr-float" :style="{width: (list.length * (4 + 0.5) + 2)+'rem'}">
           <div
             v-for="(item,idx) in list"
             :key="idx"
             :class="['css-img',activeIdx==idx?'active':'']"
-            :style="{backgroundImage:'url(\''+item+'\')'}"
+            :style="{backgroundImage:'url(\''+item.url+'\')'}"
             @click="onThumbnailImgClick(idx)"
             ></div>
           <div class="css-active" :style="{left:activeThumbnailBorderLeft}"></div>
         </div>
+      </div>
+      <!-- 关闭按钮 -->
+      <div class="sww-cpt-iv-close">
+        <i class="fa fa-close" title="关闭" @click="onCloseBtnClick"></i>
       </div>
     </div>
   </div>
@@ -36,28 +47,7 @@
 export default {
   data () {
     return {
-      list: [
-        '../../static/image/album/img_1.jpg',
-        '../../static/image/album/img_2.jpg',
-        '../../static/image/album/img_3.jpg',
-        '../../static/image/album/img_4.jpg',
-        '../../static/image/album/img_5.jpg',
-        '../../static/image/album/img_6.jpg',
-        '../../static/image/album/img_7.jpg',
-        '../../static/image/album/img_8.jpg',
-        '../../static/image/album/img_9.jpg',
-        '../../static/image/album/img_10.jpg',
-        '../../static/image/album/img_1.jpg',
-        '../../static/image/album/img_2.jpg',
-        '../../static/image/album/img_3.jpg',
-        '../../static/image/album/img_4.jpg',
-        '../../static/image/album/img_5.jpg',
-        '../../static/image/album/img_6.jpg',
-        '../../static/image/album/img_7.jpg',
-        '../../static/image/album/img_8.jpg',
-        '../../static/image/album/img_9.jpg',
-        '../../static/image/album/img_10.jpg'
-      ],
+      list: [],
       activeIdx: 0,
       domId: {
         thumbnail: 'sww_imageview_thumbnail'
@@ -81,6 +71,9 @@ export default {
       if (newVal > -1) {
         this.activeIdx = newVal
       }
+    },
+    onCloseBtnClick () {
+      this.$store.commit('setIsShowImageViewLayer', false)
     }
   },
   computed: {
@@ -92,6 +85,12 @@ export default {
     }
   },
   watch: {
+    isShowLayer (newVal) {
+      if (newVal) {
+        this.list = this.$store.getters.getImageViewArr
+        this.activeIdx = this.$store.getters.getImageViewActiveIndex
+      }
+    },
     activeIdx (newVal) {
       let imgPerVal = this.utils.screenSize.remToPx(4.5) // 单个缩略图的宽度
       let wrapPadding = this.utils.screenSize.remToPx(1) // padding为1rem
@@ -123,13 +122,14 @@ export default {
   --thumbnail-wrap-height: 6rem;
   --image-height: 25rem;
   --dot-width: 1.5rem;
+  --des-height: 1.5rem;
 }
 /*主图*/
 .sww-cpt-iv-img-wrap-0{
   position: absolute;
   height: var(--image-height);
   width: 100%;
-  top: calc(100% - var(--image-height) - var(--thumbnail-wrap-height) - 1rem);
+  bottom: calc(0.5rem + var(--thumbnail-wrap-height) + var(--des-height));
 }
 .sww-cpt-iv-img-wrap-0 div.sww-cpt-iv-img-wrap-1 {
   position:relative;
@@ -172,6 +172,17 @@ export default {
   line-height: var(--image-height);
   width: 3rem;
   text-align: center;
+}
+/*文字说明*/
+.sww-cpt-iv-des{
+  position: absolute;
+  width: 100%;
+  height: var(--des-height);
+  line-height: var(--des-height);
+  bottom: calc(var(--thumbnail-wrap-height) + 0.5rem);
+  left: 0;
+  text-align: center;
+  font-size: 0.65rem;
 }
 /*缩略图*/
 .sww-cpt-iv-thumbnail{
@@ -227,5 +238,20 @@ export default {
   box-sizing: border-box;
   border: 0.1rem solid red;
   transition: all 0.4s;
+}
+.sww-cpt-iv-close {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #fff;
+  background-color: rgba(0,0,0,0.6);
+  box-sizing: border-box;
+  width:1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 1.5rem;
 }
 </style>
