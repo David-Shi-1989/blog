@@ -1,5 +1,11 @@
 <template>
-  <div v-show="isShowLayer" class="sww-cpt-iv" tabindex="1" @keyup.left="onSwitchPreviousBtnClick" @keyup.right="onSwitchNextBtnClick">
+  <div
+    v-show="isShowLayer"
+    class="sww-cpt-iv"
+    tabindex="0"
+    @keyup.left="onSwitchPreviousBtnClick"
+    @keyup.right="onSwitchNextBtnClick"
+    @keyup.esc="onCloseBtnClick">
     <div class="sww-size-full" style="position:relative">
       <!-- 主图 -->
       <div class="sww-cpt-iv-img-wrap-0">
@@ -60,6 +66,7 @@ export default {
         this.activeIdx = parseInt(idx)
       }
     },
+    // TODO: DIV自动获取焦点问题
     onSwitchNextBtnClick () {
       let newVal = this.activeIdx + 1
       if (newVal < this.list.length) {
@@ -89,6 +96,7 @@ export default {
       if (newVal) {
         this.list = this.$store.getters.getImageViewArr
         this.activeIdx = this.$store.getters.getImageViewActiveIndex
+        // $('#' + this.domId.thumbnail).focus()
       }
     },
     activeIdx (newVal) {
