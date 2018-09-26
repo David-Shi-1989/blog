@@ -108,6 +108,7 @@ ul.sww-ul-sww-clr-float::after{
   background-color: #fff;
   border: 0.05rem solid #e5e5e5;
   padding: 1rem;
+  position: relative;
 }
 .sww-page-main-info{
   color: #888;

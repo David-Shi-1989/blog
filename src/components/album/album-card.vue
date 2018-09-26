@@ -129,7 +129,7 @@ export default {
   margin-right: 0.15rem;
 }
 .sww-cpn-album-card-tb{
-  --tb-height: 5rem;
+  --tb-height: 4rem;
   margin-top: 0.5rem;
   border-collapse:collapse;
 }

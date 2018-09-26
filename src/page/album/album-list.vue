@@ -118,8 +118,8 @@ ul.sww-album-ul{
   list-style: none;
 }
 ul.sww-album-ul > li {
-  --card-width: 15rem;
-  --card-height: 10rem;
+  --card-width: 12rem;
+  --card-height: 8rem;
   height: var(--card-height);
   width: var(--card-width);
   border: 0.05rem solid #efefef;
