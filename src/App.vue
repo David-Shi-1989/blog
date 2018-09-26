@@ -6,6 +6,7 @@
       <div id="main_container2">
         <xSideBarRight></xSideBarRight>
         <div id="mainPage">
+          <xBreadCrumb></xBreadCrumb>
           <router-view></router-view>
         </div>
         <div v-show="isShowLoading" id="sww_loading">Loading...</div>
@@ -20,9 +21,10 @@ import xHeader from '@/components/Header'
 import xSideBarLeft from '@/components/SideBarLeft'
 import xSideBarRight from '@/components/SideBarRight'
 import xImageView from '@/components/image-view'
+import xBreadCrumb from '@/components/bread-crumb'
 export default {
   name: 'App',
-  components: {xHeader, xSideBarLeft, xSideBarRight, xImageView},
+  components: {xHeader, xSideBarLeft, xSideBarRight, xImageView, xBreadCrumb},
   data () {
     var isShowLoading = this.$store.getters.isLoading
     return {
