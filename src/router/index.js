@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Storex from '../store/index'
 import Home from '@/page/Home'
 import Tourism from '@/page/Tourism'
 import Video from '@/page/Video'
@@ -12,8 +13,9 @@ import DemoList from '@/page/demo/demo-list'
 import DemoItem from '@/page/demo/demo-item'
 
 Vue.use(Router)
+Vue.use(Storex)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -67,3 +69,11 @@ export default new Router({
     }
   ]
 })
+router.beforeEach((to, from, next) => {
+  Storex.commit('triggerRouterBeforeChange')
+  next()
+})
+router.afterEach((to, from) => {
+  Storex.commit('triggerRouterAfterChange', to)
+})
+export default router

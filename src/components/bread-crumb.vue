@@ -15,8 +15,14 @@ export default {
   methods: {
   },
   computed: {
+    listenRouterChange () {
+      return this.$store.getters.getRouterAfterChange
+    }
   },
   watch: {
+    listenRouterChange () {
+      debugger
+    }
   }
 }
 </script>
@@ -31,5 +37,8 @@ export default {
 }
 .sww-cpt-bc .sww-cpt-bc-link.sww-cpt-bc-link-enable {
   color: var(--color-linkable);
+}
+.sww-cpt-bc i.fa{
+  margin: 0 0.5rem;
 }
 </style>
