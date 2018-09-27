@@ -2,7 +2,7 @@
   <div id="sww_header">
     <div class="x-header">
       <div class="sww-menu-container">
-        <ul class="sww-header-menus sww-ul-sww-clr-float">
+        <ul class="sww-header-menus sww-ul-clr-float">
           <li v-for="(item,idx) in menusArr" :key="idx" :class="activeMenuIdx==idx?'active':''" @click="onMenuItemClick(idx)">
             <router-link :to="item.to">{{item.title}}</router-link>
           </li>

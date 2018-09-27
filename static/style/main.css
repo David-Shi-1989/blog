@@ -45,13 +45,13 @@ ul {
   height: 0;
   clear: both;
 }
-ul.sww-ul-sww-clr-float{
+ul.sww-ul-clr-float{
   zoom: 1;
 }
-ul.sww-ul-sww-clr-float > li {
+ul.sww-ul-clr-float > li {
   float: left;
 }
-ul.sww-ul-sww-clr-float::after{
+ul.sww-ul-clr-float::after{
   content: "";
   width: 0;
   height: 0;
