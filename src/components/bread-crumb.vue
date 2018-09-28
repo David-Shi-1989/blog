@@ -43,6 +43,12 @@ export default {
               this.arr.push({text: pathArr[1]})
             }
             break
+          case 'post':
+            this.arr.push({text: '状态', url: '/post'})
+            if (pathArr.length > 1) {
+              this.arr.push({text: pathArr[1]})
+            }
+            break
           case 'demo':
             this.arr.push({text: '作品', url: '/demo'})
             if (pathArr.length > 1) {

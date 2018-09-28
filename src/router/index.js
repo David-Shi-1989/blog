@@ -11,6 +11,8 @@ import AlbumList from '@/page/album/album-list'
 import AlbumItem from '@/page/album/album-item'
 import DemoList from '@/page/demo/demo-list'
 import DemoItem from '@/page/demo/demo-item'
+import PostList from '@/page/post/post-list'
+import PostItem from '@/page/post/post-item'
 
 Vue.use(Router)
 Vue.use(Storex)
@@ -61,6 +63,16 @@ const router = new Router({
       path: '/demo/:id',
       name: 'DemoItem',
       component: DemoItem
+    },
+    {
+      path: '/post',
+      name: 'PostList',
+      component: PostList
+    },
+    {
+      path: '/post/:id',
+      name: 'PostItem',
+      component: PostItem
     },
     {
       path: '/*',
