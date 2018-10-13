@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     onThumbnailImgClick (idx) {
-      if (idx && !isNaN(idx) && idx < this.list.length && idx >= 0) {
+      if (!isNaN(idx) && idx < this.list.length && idx >= 0) {
         this.activeIdx = parseInt(idx)
       }
     },
