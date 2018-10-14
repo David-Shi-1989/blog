@@ -23,19 +23,19 @@
       </tbody>
     </table>
     <div class="sww-cpt-pc-bottom">
-      <span class="active">
+      <span :class="[activeBottomIdx==1?'active':'']" @click="activeBottomIdx=1">
         <i class="fa fa-thumbs-o-up"></i>
         <span class="css-title">点赞</span>
         <span class="css-val">14</span>
       </span>
-      <span>
+      <span :class="[activeBottomIdx==2?'active':'']" @click="activeBottomIdx=2">
         <i class="fa fa-comment-o"></i>
         <span class="css-title">评论</span>
         <span class="css-val">5</span>
       </span>
     </div>
     <div class="sww-cpt-pc-comment-wrap">
-      <div class="css-caret"><span></span></div>
+      <div class="css-caret" :style="{left: (2.5+6*(activeBottomIdx-1))+'rem'}"><span></span></div>
       <ul class="css-comment-list-ul">
         <li>
           <table>
@@ -74,6 +74,7 @@ export default {
   },
   data () {
     return {
+      activeBottomIdx: 1 // 1:点赞 2:评论
     }
   },
   created () {
@@ -135,6 +136,7 @@ export default {
   padding: 0.3rem;
   width: 5rem;
   text-align: center;
+  transition: all 0.2s ease-in-out;
 }
 .sww-cpt-post-card .sww-cpt-pc-bottom > span.active2::after{
   content: '';
@@ -199,7 +201,7 @@ export default {
   border-color:transparent transparent #e3e5e9;
   position:absolute;
   top: -0.3rem;
-  left: 2.5rem;
+  transition: all 0.2s ease-in-out;
 }
 .sww-cpt-post-card .sww-cpt-pc-comment-wrap div.css-caret > span{
   display:block;
