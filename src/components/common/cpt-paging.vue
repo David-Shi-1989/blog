@@ -1,6 +1,7 @@
 <template>
   <div class="sww-cpt-paging">
-    <span class="sww-cpt-paging-total">共<span class="css-val">{{total}}</span>条</span>
+    <span v-if="showTotoal" class="sww-cpt-paging-total">共<span class="css-val">{{total}}</span>条</span>
+    <span v-if="showPageSize" class="sww-cpt-paging-pagesize">每页<span class="css-val">{{pageSize}}</span>条</span>
     <span class="sww-cpt-paging-current">
       <span class="sww-cpt-paging-btn" @click="onPreviousPageBtnClick">
         <i class="fa fa-angle-left" title="上一页"></i>
@@ -42,6 +43,14 @@ export default {
     pageSize: {
       type: Number,
       default: 20
+    },
+    showTotoal: {
+      type: Boolean,
+      default: true
+    },
+    showPageSize: {
+      type: Boolean,
+      default: true
     }
   },
   created () {
@@ -131,6 +140,12 @@ export default {
   margin-right: 0.5rem;
 }
 .sww-cpt-paging-total .css-val{
+  margin: 0 0.2rem;
+}
+.sww-cpt-paging-pagesize{
+  margin-right: 0.5rem;
+}
+.sww-cpt-paging-pagesize .css-val{
   margin: 0 0.2rem;
 }
 .sww-cpt-paging-current{

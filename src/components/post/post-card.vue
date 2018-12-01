@@ -47,14 +47,14 @@
             </thead>
             <tbody>
               <tr>
-                <td><img class="css-avatar" src="../../../static/image/avatar/avatar_01.jpg"></td>
+                <td rowspan="2"><img class="css-avatar" src="../../../static/image/avatar/avatar_01.jpg"></td>
                 <td>
-                  <p class="css-username">User1</p>
-                  <p class="css-datetime">2018/09/26 12:39:12</p>
+                  <span class="css-username">User1</span>
+                  <span class="css-datetime">2018/09/26 12:39:12</span>
                 </td>
               </tr>
               <tr>
-                <td colspan="2"><p class="css-content">Content</p></td>
+                <td><p class="css-content">Content</p></td>
               </tr>
             </tbody>
           </table>
@@ -123,46 +123,29 @@ export default {
   border-bottom: 0.05rem solid #e3e5e9;
 }
 .sww-cpt-post-card .sww-cpt-pc-bottom i{
-  color: #99a9c8;
   font-size: 0.8rem;
 }
 .sww-cpt-post-card .sww-cpt-pc-bottom > span{
   display: inline-block;
+  color: var(--header-bg2);
   height: 1.2rem;
   line-height: 1.2rem;
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 0.5;
   transition: opacity 0.3s;
   padding: 0.3rem;
   width: 5rem;
   text-align: center;
   transition: all 0.2s ease-in-out;
 }
-.sww-cpt-post-card .sww-cpt-pc-bottom > span.active2::after{
-  content: '';
-  display: block;
-  width:0;
-  height: 0;
-  border-width: 0 0.3rem 0.3rem;
-  border-style: solid;
-  border-color: transparent transparent #fff;
-  position: relative;
-  top: -0.15rem;
-  left: 2.5rem;
-  z-index: 99;
-}
-.sww-cpt-post-card .sww-cpt-pc-bottom > span.active i,
-.sww-cpt-post-card .sww-cpt-pc-bottom > span.active span.css-val,
-.sww-cpt-post-card .sww-cpt-pc-bottom > span.active span.css-title{
-  color: #33518f;
+.sww-cpt-post-card .sww-cpt-pc-bottom > span.active{
+  opacity: 1;
 }
 .sww-cpt-post-card .sww-cpt-pc-bottom span.css-val{
-  color:#99a9c8;
   font-size: 0.6rem;
 }
 .sww-cpt-post-card .sww-cpt-pc-bottom span.css-title {
-  font-size: 0.65rem;
-  color: #99a9c8;
+  font-size: 0.7rem;
 }
 /*评论wrap*/
 .sww-cpt-post-card .sww-cpt-pc-comment-wrap{
@@ -180,18 +163,20 @@ export default {
 .sww-cpt-post-card .sww-cpt-pc-comment-wrap ul.css-comment-list-ul li img.css-avatar{
   float: left;
 }
-.sww-cpt-post-card .sww-cpt-pc-comment-wrap ul.css-comment-list-ul li p.css-username{
+.sww-cpt-post-card .sww-cpt-pc-comment-wrap ul.css-comment-list-ul li .css-username{
   font-size: 0.65rem;
-  color:#fff;
-  font-weight: bolder;
+  color:var(--color-text-2);
 }
-.sww-cpt-post-card .sww-cpt-pc-comment-wrap ul.css-comment-list-ul li p.css-datetime{
+.sww-cpt-post-card .sww-cpt-pc-comment-wrap ul.css-comment-list-ul li .css-datetime{
   font-size: 0.6rem;
-  color:#ddd;
+  color:var(--color-text-5);
 }
-.sww-cpt-post-card .sww-cpt-pc-comment-wrap ul.css-comment-list-ul li p.css-content{
+.sww-cpt-post-card .sww-cpt-pc-comment-wrap ul.css-comment-list-ul li .css-content{
   float: left;
-  color: #eee;
+  color: var(--color-text-8);
+  background-color: var(--header-bg2);
+  padding: 0.2rem 0.5rem;;
+  border-radius: 0.1rem;
 }
 .sww-cpt-post-card .sww-cpt-pc-comment-wrap div.css-caret{
   width:0;

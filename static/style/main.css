@@ -27,6 +27,9 @@ body {
   --color-text-4: #888;
   --color-text-5: #aaa;
   --color-text-6: #ccc;
+  --color-text-7: #ddd;
+  --color-text-8: #fff;
+  --color-text-fb-text: #444950;
 }
 ul {
   list-style: none;
@@ -160,12 +163,12 @@ input:focus{
     font-size: 16px !important;
   }
 }
-@media (min-width: 1500px) and (max-width: 1899px) {
+@media (min-width: 1500px) and (max-width: 1999px) {
   html {
     font-size: 20px !important;
   }
 }
-@media (min-width: 1900px) and (max-width: 2799px) {
+@media (min-width: 2000px) and (max-width: 2799px) {
   html {
     font-size: 26px !important;
   }
