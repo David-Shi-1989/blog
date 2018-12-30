@@ -11,7 +11,7 @@
           <span class="sww-blog-span sww-blog-datetime">{{(new Date(item.createTime)).format(dateformat)}}</span>
         </li>
       </ul>
-      <div class="sww-float-right" style="position:absolute;bottom:0.5rem;right:0.5rem;">
+      <div class="sww-float-right sww-page-tool">
         <cptPaging v-model="dataCount" @currentChange="onPagingCurrentChange"></cptPaging>
       </div>
     </div>
@@ -146,5 +146,12 @@ export default {
   float: right;
   color: #ccc;
   width:7rem;
+  text-align: right;
+}
+
+.sww-page-tool {
+  position:absolute;
+  bottom:1rem;
+  right:1rem;
 }
 </style>

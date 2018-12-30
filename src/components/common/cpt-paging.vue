@@ -7,7 +7,7 @@
         <i class="fa fa-angle-left" title="上一页"></i>
       </span>
       <span v-for="(item,idx) in calPageArr" :key="idx"
-        :class="item.class" @click="onPageItemClick(item.val)" :title="'第'+item.val+'页'">
+        :class="item.class" @click="onPageItemClick(item.val)" :title="item.val?'第'+item.val+'页':''">
         {{item.val}}
       </span>
       <span class="sww-cpt-paging-btn" @click="onNextPageBtnClick">
@@ -135,6 +135,10 @@ export default {
   font-size: 0.65rem;
   color:#666;
   padding: 0.1rem 0;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
 }
 .sww-cpt-paging-total{
   margin-right: 0.5rem;
@@ -149,7 +153,7 @@ export default {
   margin: 0 0.2rem;
 }
 .sww-cpt-paging-current{
-  --span-width: 0.9rem;
+  --span-width: 1rem;
 }
 .sww-cpt-paging-current > i.fa{
   cursor: pointer;
@@ -161,6 +165,7 @@ export default {
   height: var(--span-width);
   line-height: var(--span-width);
   text-align: center;
+  transition: all .3s;
 }
 .sww-cpt-paging-current > .css-val.active{
   background-color: #2d8cf0;
@@ -180,6 +185,12 @@ export default {
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
+}
+.sww-cpt-paging-current > span:not(:first-child) {
+  margin-left: 0.3rem;
+}
+.sww-cpt-paging-current > span.css-val:not(.active):hover{
+  background-color: rgba(45,140,240,0.2);
 }
 .sww-cpt-paging-input{
   display: inline-block;
