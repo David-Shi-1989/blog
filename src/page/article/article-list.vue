@@ -1,16 +1,16 @@
 <template>
   <div class="sww-page-wrap">
-    <h2>Blog List</h2>
-    <ul class="sww-blog-list-container">
-      <li v-for="(item,index) in blogList" :key="index" :class="'sww-blog-list-item item'+item.type">
+    <h2>article List</h2>
+    <ul class="sww-article-list-container">
+      <li v-for="(item,index) in articleList" :key="index" :class="'sww-article-list-item item'+item.type">
         <div class="header sww-clr-float">
-          <router-link :to="'/blog/'+item.id"><h4 class="title sww-text-ellipsis" :title="item.title">{{item.title}}</h4></router-link>
+          <router-link :to="'/article/'+item.id"><h4 class="title sww-text-ellipsis" :title="item.title">{{item.title}}</h4></router-link>
           <div class="tagContainer">
             <span class="bg"></span>
             <p>{{item.type>0?'转载':'原创'}}</p>
           </div>
         </div>
-        <!-- <div class="sww-blog-item-info sww-clr-float">
+        <!-- <div class="sww-article-item-info sww-clr-float">
           <div><p class="author"><i class="fa fa-user-circle"></i>{{item.author}}</p></div>
         </div> -->
         <p class="content">{{item.description}}</p>
@@ -20,10 +20,10 @@
         </div>
       </li>
     </ul>
-    <ul class="sww-blog-list-c2" v-show="false">
-      <li v-for="(item,index) in blogList" :key="index" :class="(item.type==0?'sww-blog-type-0':'sww-blog-type-1') + ' sww-clr-float'">
-        <span class="sww-blog-title sww-text-ellipsis" :title="item.title">{{item.title}}</span>
-        <span class="sww-blog-datetime">{{(new Date(item.createTime)).format(dateformat)}}</span>
+    <ul class="sww-article-list-c2" v-show="false">
+      <li v-for="(item,index) in articleList" :key="index" :class="(item.type==0?'sww-article-type-0':'sww-article-type-1') + ' sww-clr-float'">
+        <span class="sww-article-title sww-text-ellipsis" :title="item.title">{{item.title}}</span>
+        <span class="sww-article-datetime">{{(new Date(item.createTime)).format(dateformat)}}</span>
       </li>
     </ul>
     <div class="sww-cpt-scroll-bar"></div>
@@ -40,7 +40,7 @@ export default {
   data () {
     return {
       dateformat: 'yyyy/MM/dd hh:mm',
-      blogList: [
+      articleList: [
         {
           id: '9018-827d-sk13-98sk',
           title: 'Title1',
@@ -103,11 +103,11 @@ export default {
 .sww-page-wrap {
   position: relative;
 }
-ul.sww-blog-list-container{
+ul.sww-article-list-container{
   /* width: 50rem; */
   margin: 0 auto;
 }
-ul.sww-blog-list-container > li {
+ul.sww-article-list-container > li {
   --font-size:0.7rem;
   background-color: #fff;
   padding:0.7rem 0;
@@ -118,33 +118,33 @@ ul.sww-blog-list-container > li {
   margin-bottom: 1rem;
 }
 /*原创*/
-ul.sww-blog-list-container > li.sww-blog-list-item.item0 span.bg{
+ul.sww-article-list-container > li.sww-article-list-item.item0 span.bg{
   border-color: transparent var(--color-error) transparent transparent;
 }
 /*转载*/
-ul.sww-blog-list-container > li.sww-blog-list-item.item1 span.bg{
+ul.sww-article-list-container > li.sww-article-list-item.item1 span.bg{
   border-color: transparent var(--color-info) transparent transparent;
 }
-ul.sww-blog-list-container > li:hover{
+ul.sww-article-list-container > li:hover{
   /* box-shadow: 0 0 0.1rem #999; */
 }
-ul.sww-blog-list-container > li .sww-blog-item-info{
+ul.sww-article-list-container > li .sww-article-item-info{
   margin-top: 0.2rem;
   padding: 0 0.5rem;
   box-sizing: border-box;
 }
-ul.sww-blog-list-container > li .sww-blog-item-info > div{
+ul.sww-article-list-container > li .sww-article-item-info > div{
   float: left;
   width: 33.333%;
   height: 1rem;
   line-height: 1rem;
 }
-ul.sww-blog-list-container > li .header{
+ul.sww-article-list-container > li .header{
   position: relative;
   height: 2rem;
   line-height: 2rem;
 }
-ul.sww-blog-list-container > li .header .title{
+ul.sww-article-list-container > li .header .title{
   height: 2rem;
   line-height: 2rem;
   color: #444;
@@ -154,7 +154,7 @@ ul.sww-blog-list-container > li .header .title{
   box-sizing: border-box;
   padding: 0 2rem;
 }
-ul.sww-blog-list-container > li .header .tagContainer{
+ul.sww-article-list-container > li .header .tagContainer{
   float: right;
   margin-top: -0.7rem;
   margin-right: 2rem;
@@ -162,7 +162,7 @@ ul.sww-blog-list-container > li .header .tagContainer{
   width: 3rem;
   height: 3rem;
 }
-ul.sww-blog-list-container > li .header .tagContainer p{
+ul.sww-article-list-container > li .header .tagContainer p{
   line-height: 1rem;
   text-align: center;
   position: relative;
@@ -173,7 +173,7 @@ ul.sww-blog-list-container > li .header .tagContainer p{
   font-size: 0.6rem;
   letter-spacing: 0.1rem;
 }
-ul.sww-blog-list-container > li .header .tagContainer span.bg{
+ul.sww-article-list-container > li .header .tagContainer span.bg{
   display: block;
   position: absolute;
   width:0;
@@ -185,18 +185,18 @@ ul.sww-blog-list-container > li .header .tagContainer span.bg{
   left: 0;
   z-index: 89;
 }
-ul.sww-blog-list-container > li i{
+ul.sww-article-list-container > li i{
   font-size: var(--font-size);
   margin-right: 0.3rem;
   color: #777;
 }
-ul.sww-blog-list-container > li .author,
-ul.sww-blog-list-container > li .tagContainer,
-ul.sww-blog-list-container > li .time{
+ul.sww-article-list-container > li .author,
+ul.sww-article-list-container > li .tagContainer,
+ul.sww-article-list-container > li .time{
   font-size: var(--font-size);
   color: #777;
 }
-ul.sww-blog-list-container > li .content{
+ul.sww-article-list-container > li .content{
   height: 4rem;
   font-size: 0.7rem;
   text-indent: 1.3rem;
@@ -209,14 +209,14 @@ ul.sww-blog-list-container > li .content{
   border-left-width: 0;
 
 }
-ul.sww-blog-list-container > li .tags{
+ul.sww-article-list-container > li .tags{
   padding: 0 0.5rem;
   padding-bottom: 0.5rem;
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
 
 }
-ul.sww-blog-list-container > li .tags > span{
+ul.sww-article-list-container > li .tags > span{
   font-size: 0.6rem;
   display: inline-block;
   color:#555;
@@ -227,39 +227,39 @@ ul.sww-blog-list-container > li .tags > span{
   border: 0.05rem solid #ccc;
   transition: all 0.3s;
 }
-ul.sww-blog-list-container > li .tags > span:hover{
+ul.sww-article-list-container > li .tags > span:hover{
   color:var(--color-info);
 }
 
-.sww-blog-list-c2{
+.sww-article-list-c2{
   list-style: none;
 }
-.sww-blog-list-c2 > li {
+.sww-article-list-c2 > li {
   height: 1.2rem;
   line-height: 1.2rem;
   vertical-align: middle;
   font-size: 0.7rem;
 }
-.sww-blog-list-c2 > li.sww-blog-type-0 span.sww-blog-title::before{
+.sww-article-list-c2 > li.sww-article-type-0 span.sww-article-title::before{
   content: '[转]';
   font-size: 0.6rem;
   display: block;
   float: left;
   margin-right: 0.3rem;
 }
-.sww-blog-list-c2 > li.sww-blog-type-1 span.sww-blog-title::before{
+.sww-article-list-c2 > li.sww-article-type-1 span.sww-article-title::before{
   content: '[原]';
   font-size: 0.6rem;
   display: block;
   float: left;
   margin-right: 0.3rem;
 }
-.sww-blog-list-c2 > li span.sww-blog-title{
+.sww-article-list-c2 > li span.sww-article-title{
   display: block;
   float: left;
   width: 15rem;
 }
-.sww-blog-list-c2 > li span.sww-blog-datetime{
+.sww-article-list-c2 > li span.sww-article-datetime{
   display: block;
   float: right;
 }

@@ -83,7 +83,7 @@ ul.sww-ul-clr-float::after{
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/*普通页面的头部卡片,如blogList,albumList的统计卡片*/
+/*普通页面的头部卡片,如articleList,albumList的统计卡片*/
 .sww-page-wrap{
   width: 100%;
   height: calc(100% - var(--header-height) - 1rem);
@@ -152,6 +152,14 @@ input {
 input:focus{
   border-color: #2d8bf03b;
   box-shadow: 0 0 0.2rem #999;
+}
+
+/*不允许选中文本*/
+.sww-cannot-select {
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
 }
 @media (min-width: 900px) and (max-width: 1199px) {
   html {

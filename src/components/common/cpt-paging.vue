@@ -1,5 +1,5 @@
 <template>
-  <div class="sww-cpt-paging">
+  <div class="sww-cpt-paging sww-cannot-select">
     <span v-if="showTotoal" class="sww-cpt-paging-total">共<span class="css-val">{{total}}</span>条</span>
     <span v-if="showPageSize" class="sww-cpt-paging-pagesize">每页<span class="css-val">{{pageSize}}</span>条</span>
     <span class="sww-cpt-paging-current">
@@ -135,10 +135,6 @@ export default {
   font-size: 0.65rem;
   color:#666;
   padding: 0.1rem 0;
-  -webkit-user-select:none;
-  -moz-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
 }
 .sww-cpt-paging-total{
   margin-right: 0.5rem;

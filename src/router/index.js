@@ -5,8 +5,8 @@ import Home from '@/page/Home'
 import Tourism from '@/page/Tourism'
 import Video from '@/page/Video'
 import NotFound from '@/page/404'
-import BlogList from '@/page/blog/blog-list.1'
-import BlogItem from '@/page/blog/blog-item'
+import articleList from '@/page/article/article-list.1'
+import articleItem from '@/page/article/article-item'
 import AlbumList from '@/page/album/album-list'
 import AlbumItem from '@/page/album/album-item'
 import DemoList from '@/page/demo/demo-list'
@@ -35,14 +35,14 @@ const router = new Router({
       component: Video
     },
     {
-      path: '/blog/:id',
-      name: 'BlogItem',
-      component: BlogItem
+      path: '/article/:id',
+      name: 'articleItem',
+      component: articleItem
     },
     {
-      path: '/blog',
-      name: 'Blog',
-      component: BlogList
+      path: '/article',
+      name: 'article',
+      component: articleList
     },
     {
       path: '/album',

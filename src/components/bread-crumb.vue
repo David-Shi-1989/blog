@@ -1,5 +1,5 @@
 <template>
-  <div class="sww-cpt-bc">
+  <div class="sww-cpt-bc sww-cannot-select">
     <ul class="sww-ul-clr-float">
       <li v-for="(item,idx) in arr" :key="idx">
         <router-link v-if="item.url&&idx<arr.length-1" :class="['sww-cpt-bc-link', 'sww-cpt-bc-link-enable']" :to="item.url">{{item.text}}</router-link>
@@ -14,7 +14,13 @@
 export default {
   data () {
     return {
-      arr: []
+      arr: [],
+      ROUTER_LIST: {
+        'article': '博客',
+        'album': '相册',
+        'post': '状态',
+        'demo': '作品'
+      }
     }
   },
   created () {
@@ -30,33 +36,13 @@ export default {
         let pathArr = this.$route.path.split('/').filter(function (item) {
           return (item.trim().length > 0)
         })
-        switch (pathArr[0]) {
-          case 'blog':
-            this.arr.push({text: '博客', url: '/blog'})
-            if (pathArr.length > 1) {
-              this.arr.push({text: pathArr[1]})
-            }
-            break
-          case 'album':
-            this.arr.push({text: '相册', url: '/album'})
-            if (pathArr.length > 1) {
-              this.arr.push({text: pathArr[1]})
-            }
-            break
-          case 'post':
-            this.arr.push({text: '状态', url: '/post'})
-            if (pathArr.length > 1) {
-              this.arr.push({text: pathArr[1]})
-            }
-            break
-          case 'demo':
-            this.arr.push({text: '作品', url: '/demo'})
-            if (pathArr.length > 1) {
-              this.arr.push({text: pathArr[1]})
-            }
-            break
-          default:
-            throw Error('Need Update Router in bread-crumb')
+        if (this.ROUTER_LIST[pathArr[0]]) {
+          this.arr.push({text: this.ROUTER_LIST[pathArr[0]], url: '/' + pathArr[0]})
+          if (pathArr.length > 1) {
+            this.arr.push({text: pathArr[1]})
+          }
+        } else {
+          throw Error('Need Update Router in bread-crumb')
         }
       }
     }

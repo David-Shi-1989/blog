@@ -11,7 +11,7 @@
         <span><i class="fa fa-eye"></i>123</span>
         <span><i class="fa fa-heart"></i>21</span>
       </div>
-      <div class="sww-blog-item-content">Content</div>
+      <div class="sww-article-item-content">Content</div>
     </div>
   </div>
 </template>
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style scoped>
-.sww-blog-item-content{
+.sww-article-item-content{
   color: var(--color-text-2);
   font-size: 0.7rem;
 }

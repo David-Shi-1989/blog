@@ -1,5 +1,5 @@
 <template>
-  <div id="sww_sidebar_wrapper" :style="'width:' + (isSideBarOpen ? '9rem':'2.8rem')">
+  <div id="sww_sidebar_wrapper" :style="'width:' + (isSideBarOpen ? '9rem':'2.8rem')" class="sww-cannot-select">
     <div id="sww_sidebar">
       <div class="x-header">
         <span v-if="isSideBarOpen">David Shi</span>

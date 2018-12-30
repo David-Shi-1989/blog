@@ -4,11 +4,11 @@
       <span>7分类</span><span>71篇</span>
     </div>
     <div class="sww-page-main sww-clr-float">
-      <ul class="sww-blog-list-c2">
-        <li v-for="(item,index) in blogList" :key="index" :class="(item.type==0?'sww-blog-type-0':'sww-blog-type-1') + ' sww-clr-float'">
-          <span :class="['sww-blog-span','sww-blog-from','sww-blog-from-'+(item.type)]">{{(item.type==0?'转载':'原创')}}</span>
-          <router-link :to="'/blog/'+item.id" class="sww-blog-span sww-blog-title sww-text-ellipsis" :title="item.title">{{item.title}}</router-link>
-          <span class="sww-blog-span sww-blog-datetime">{{(new Date(item.createTime)).format(dateformat)}}</span>
+      <ul class="sww-article-list-c2">
+        <li v-for="(item,index) in articleList" :key="index" :class="(item.type==0?'sww-article-type-0':'sww-article-type-1') + ' sww-clr-float'">
+          <span :class="['sww-article-span','sww-article-from','sww-article-from-'+(item.type)]">{{(item.type==0?'转载':'原创')}}</span>
+          <router-link :to="'/article/'+item.id" class="sww-article-span sww-article-title sww-text-ellipsis" :title="item.title">{{item.title}}</router-link>
+          <span class="sww-article-span sww-article-datetime">{{(new Date(item.createTime)).format(dateformat)}}</span>
         </li>
       </ul>
       <div class="sww-float-right sww-page-tool">
@@ -25,7 +25,7 @@ export default {
   data () {
     return {
       dateformat: 'yyyy/MM/dd hh:mm',
-      blogList: [
+      articleList: [
         {
           id: '9018-827d-sk13-98sk',
           title: 'Title1',
@@ -94,10 +94,10 @@ export default {
 .sww-page-wrap {
   position: relative;
 }
-.sww-blog-list-c2{
+.sww-article-list-c2{
   list-style: none;
 }
-.sww-blog-list-c2 > li {
+.sww-article-list-c2 > li {
   vertical-align: middle;
   font-size: 0.7rem;
   --line-height: 1.5rem;
@@ -105,20 +105,20 @@ export default {
   line-height: var(--line-height);
   cursor: pointer;
 }
-.sww-blog-list-c2 > li:hover .sww-blog-datetime{
+.sww-article-list-c2 > li:hover .sww-article-datetime{
   color: var(--color-text-4);
 }
-.sww-blog-list-c2 > li:hover .sww-blog-title{
+.sww-article-list-c2 > li:hover .sww-article-title{
   text-decoration: underline;
 }
-.sww-blog-list-c2 > li > .sww-blog-span {
+.sww-article-list-c2 > li > .sww-article-span {
   display: block;
   height: var(--line-height);
   line-height: var(--line-height);
   color:var(--color-text-1);
   transition: all 0.3s;
 }
-.sww-blog-list-c2 > li > .sww-blog-from{
+.sww-article-list-c2 > li > .sww-article-from{
   float: left;
   font-size: 0.5rem;
   width: 1.5rem;
@@ -129,20 +129,20 @@ export default {
   margin: 0.35rem 0.3rem 0 0;
 }
 /*转载*/
-.sww-blog-list-c2 > li > .sww-blog-from.sww-blog-from-0{
+.sww-article-list-c2 > li > .sww-article-from.sww-article-from-0{
   background-color: var(--color-warning);
 }
 /*原创*/
-.sww-blog-list-c2 > li > .sww-blog-from.sww-blog-from-1{
+.sww-article-list-c2 > li > .sww-article-from.sww-article-from-1{
   background-color: var(--color-success);
 }
-.sww-blog-list-c2 > li .sww-blog-title{
+.sww-article-list-c2 > li .sww-article-title{
   float: left;
   width: calc(100% - 1.5rem - 7rem - 1rem);
   text-decoration: none;
   color: var(--color-linkable);
 }
-.sww-blog-list-c2 > li .sww-blog-datetime{
+.sww-article-list-c2 > li .sww-article-datetime{
   float: right;
   color: #ccc;
   width:7rem;

@@ -1,5 +1,5 @@
 <template>
-  <div id="sww_header">
+  <div id="sww_header" class="sww-cannot-select">
     <div class="x-header">
       <div class="sww-menu-container">
         <ul class="sww-header-menus sww-ul-clr-float">
