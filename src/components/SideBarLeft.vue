@@ -3,7 +3,7 @@
     <div id="sww_sidebar">
       <div class="x-header">
         <span v-if="isSideBarOpen">David Shi</span>
-        <i :class="'fa fa-bars' + (isSideBarOpen?'':' rotate90')" @click="toggleSideBar" :style="{float:(isSideBarOpen?'right':'left')}"></i>
+        <i :class="'fa fa-bars' + (isSideBarOpen?'':' open')" @click="toggleSideBar" :style="{float:(isSideBarOpen?'right':'left')}"></i>
       </div>
       <div class="x-avatar">
         <img src="/static/image/avatar-colored-d.png">
@@ -47,7 +47,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 #sww_sidebar_wrapper{
   --wrapper-width-open: 9rem;
   --wrapper-width-close: 2.8rem;
@@ -60,122 +60,118 @@ export default {
   background-color: #fff;
   box-shadow: rgba(0,0,0,.2) -2px 0px 10px;
   transition: all .2s ease-in;
-}
-#sww_sidebar{
-  width: var(--wrapper-width-open);
-  height: 100%;
-  position: relative;
-  box-sizing: border-box;
-}
-#sww_sidebar > div{
-  width:100%;
-}
-#sww_sidebar .x-header {
-  height: var(--header-height);
-  line-height: var(--header-height);
-  vertical-align: middle;
-  text-align: center;
-  background-color: var(--header-bg);
-  color: #fff;
-  box-sizing: border-box;
-}
-#sww_sidebar .x-header span{
-  margin-left: 1rem;
-  float: left;
-}
-#sww_sidebar .x-header i{
-  display: block;
-  width: var(--wrapper-width-close);
-  height: var(--header-height);
-  line-height: var(--header-height);
-  cursor: pointer;
-  transition: all .2s;
-}
-.rotate90{
-  transform: rotate(90deg);
-}
-#sww_sidebar .x-avatar {
-  width: 100%;
-  box-sizing: border-box;
-  text-align: center;
-}
-#sww_sidebar .x-avatar img{
-  width: 70%;
-  margin: 2rem auto 1rem auto;
-  border-radius: 50%;
-  border:.05rem solid #EEE;
+  #sww_sidebar{
+    width: var(--wrapper-width-open);
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    .x-header {
+      height: var(--header-height);
+      line-height: var(--header-height);
+      vertical-align: middle;
+      text-align: center;
+      background-color: var(--header-bg);
+      color: #fff;
+      box-sizing: border-box;
+      span{
+        margin-left: 1rem;
+        float: left;
+      }
+      i{
+        display: block;
+        width: var(--wrapper-width-close);
+        height: var(--header-height);
+        line-height: var(--header-height);
+        cursor: pointer;
+        transition: all .2s;
+        &.open {
+          transform: rotate(90deg);
+        }
+      }
+    }
+    .x-avatar {
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+      img{
+        width: 70%;
+        margin: 2rem auto 1rem auto;
+        border-radius: 50%;
+        border:.05rem solid #EEE;
+      }
+    }
+    .x-menus{
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      border-top: .05rem solid #eaeaea;
+      --menu-item-height:2rem;
+      .menu-active-bg{
+        position: absolute;
+        display: block;
+        width: var(--wrapper-width-open);
+        height: var(--menu-item-height);
+        background: var(--header-bg2);
+        left: 0;
+        transition: top 0.2s ease-in-out;
+        z-index: 49;
+      }
+      ul {
+        list-style: none;
+        position: relative;
+        z-index: 50;
+        & > li{
+          height: var(--menu-item-height);
+          line-height: var(--menu-item-height);
+          vertical-align: middle;
+          cursor: pointer;
+          padding: 0 .3rem 0 0;
+          &:hover{
+            background: rgba(103, 194, 58,.1);
+          }
+          &.active {
+            i, a {
+              color: #eee;
+            }
+            span.badge{
+              background-color: var(--color-info);
+            }
+          }
+          i{
+            display: block;
+            font-size: .7rem;
+            float: left;
+            width:var(--wrapper-width-close);
+            margin-right: .5rem;
+            text-align: center;
+            color:#aaa;
+            height: var(--menu-item-height);
+            line-height: var(--menu-item-height);
+          }
+          a{
+            text-decoration: none;
+            color:#555;
+            font-size: .8rem;
+            float: left;
+          }
+          span.badge{
+            --dot-width: .9rem;
+            text-align: center;
+            float: right;
+            font-size: .6rem;
+            background-color: #555;
+            color:#fff;
+            display: block;
+            width:var(--dot-width);
+            height: var(--dot-width);
+            line-height: var(--dot-width);
+            border-radius: 50%;
+            margin-top: calc((var(--menu-item-height) - var(--dot-width))/2);
+          }
+        }
+      }
+    }
+  }
 }
 /*Menus*/
-#sww_sidebar .x-menus{
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
-  border-top: .05rem solid #eaeaea;
-  --menu-item-height:2rem;
-}
-#sww_sidebar .x-menus ul {
-  list-style: none;
-  position: relative;
-  z-index: 50;
-}
-#sww_sidebar .x-menus ul > li{
-  height: var(--menu-item-height);
-  line-height: var(--menu-item-height);
-  vertical-align: middle;
-  cursor: pointer;
-  padding: 0 .3rem 0 0;
-}
-#sww_sidebar .x-menus ul > li:hover{
-  background: rgba(103, 194, 58,.1);
-}
-#sww_sidebar .x-menus ul > li.active{
-  /* background-color: var(--header-bg2); */
-}
-#sww_sidebar .x-menus ul > li.active i,
-#sww_sidebar .x-menus ul > li.active a{
-  color: #eee;
-}
-#sww_sidebar .x-menus ul > li.active span.badge{
-  background-color: var(--color-info);
-}
-#sww_sidebar .x-menus i{
-  display: block;
-  float: left;
-  width:var(--wrapper-width-close);
-  margin-right: .5rem;
-  text-align: center;
-  color:#aaa;
-  height: var(--menu-item-height);
-  line-height: var(--menu-item-height);
-}
-#sww_sidebar .x-menus a{
-  text-decoration: none;
-  color:#555;
-  font-size: 1rem;
-  float: left;
-}
-.x-menus .menu-active-bg{
-  position: absolute;
-  display: block;
-  width: var(--wrapper-width-open);
-  height: var(--menu-item-height);
-  background: var(--header-bg2);
-  left: 0;
-  transition: top 0.2s ease-in-out;
-  z-index: 49;
-}
-#sww_sidebar .x-menus span.badge{
-  --dot-width: .9rem;
-  text-align: center;
-  float: right;
-  font-size: .6rem;
-  background-color: #555;
-  color:#fff;
-  display: block;
-  width:var(--dot-width);
-  height: var(--dot-width);
-  line-height: var(--dot-width);
-  border-radius: 50%;
-  margin-top: calc((var(--menu-item-height) - var(--dot-width))/2);
-}
 </style>
