@@ -11,6 +11,9 @@ const session = require('express-session')
 const MemoryStore = require('session-memory-store')(session)
 const cookieParser = require('cookie-parser')
 
+const apiRouter = require('./api/index')
+const tokenCheck = require('./middleware/tokenCheck')
+
 const app = express()
 
 const LISTEN_PORT = 8080
@@ -53,6 +56,9 @@ app.get(['/', '/index.html'], function (req, res, next) {
     }
   })
 })
+
+app.use(tokenCheck)
+app.use('', apiRouter)
 
 app.listen(LISTEN_PORT, function () {
   console.log(`App run at port ${LISTEN_PORT}`)
