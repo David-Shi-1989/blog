@@ -50,9 +50,6 @@ export default {
   position: relative;
   z-index: 18;
 }
-.el-col, .el-row {
-  height: 100%;
-}
 #main_container2{
   width: 100%;
   height: calc(100% - var(--header-height));
