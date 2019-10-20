@@ -125,9 +125,10 @@ ul.sww-album-ul > li {
   border: 0.05rem solid #efefef;
   box-sizing: border-box;
   padding: 0.5rem;
-  background-color: #f9f9f9;
+  background-color: #fff;
   float: left;
   margin-right: .5rem;
   margin-bottom: .5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.15);
 }
 </style>

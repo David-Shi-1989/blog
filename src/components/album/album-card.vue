@@ -110,78 +110,92 @@ export default {
 }
 </script>
 
-<style scoped>
-.sww-album-title {
-  font-size: 0.8rem;
-  font-weight: bolder;
-  color:var(--color-linkable);
-  height: 1.5rem;
-  line-height: 1.5rem;
-  text-decoration: none;
-}
-.sww-album-count{
-  font-size: 0.6rem;
-  color:var(--color-text-4);
-  height: 1rem;
-  line-height: 1rem;
-}
-.sww-album-count span{
-  margin-right: 0.15rem;
-}
-.sww-cpn-album-card-tb{
-  --tb-height: 4rem;
-  margin-top: 0.5rem;
-  border-collapse:collapse;
-}
-.sww-cpn-album-card-tb .css-img{
-  display: block;
-  background-position: 50% 50%;
-  background-size: cover;
-  border: 0.05rem solid #ddd;
-  box-sizing: border-box;
-}
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-1 td .css-img {
-  height: var(--tb-height);
-  width:  calc(var(--card-width) - 1rem);
-}
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-2-h td .css-img{
-  height: calc(var(--tb-height) / 2);
-  width:  calc(var(--card-width) - 1rem);
-}
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-2-v td .css-img{
-  height: calc(var(--tb-height));
-  width:  calc((var(--card-width) - 1rem - 0.1rem) / 2);
-}
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-2-v tr td:first-child .css-img {
-  margin-right: 0.2rem;
-}
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-3 td[rowspan='2'] > .css-img {
-  height: var(--tb-height);
-  width: calc(((var(--card-width) - 1rem) / 2) - 0.1rem);
-}
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-3 td:not([rowspan='2']) .css-img {
-  height: calc(var(--tb-height) / 2);
-  width: calc(((var(--card-width) - 1rem) / 2) - 0.1rem);
-  margin-left: 0.2rem;
-}
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-4 td .css-img{
-  height: calc((var(--tb-height)) / 2);
-  width:  calc((var(--card-width) - 1rem - 0.1rem) / 2);
-}
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-4 tr td:first-child .css-img {
-  margin-right: 0.2rem;
-}
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-5 td[rowspan='2'] .css-img {
-  height: calc(var(--tb-height));
-  width: calc((var(--card-width) - 1rem - 0.1rem) / 2);
-  margin-right: 0.2rem;
-}
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-5 td:not([rowspan='2']) .css-img {
-  height: calc(var(--tb-height) / 2);
-  width: calc((var(--card-width) - 1rem - 0.1rem) / 4);
-}
-.sww-cpn-album-card-tb.sww-cpn-album-card-tb-6 td .css-img {
-  height: calc(var(--tb-height) / 2);
-   width: calc((var(--card-width) - 1rem - 0.1rem) / 3);
+<style lang="less" scoped>
+.sww-album-wrap {
+  .sww-album-title {
+    font-size: 0.8rem;
+    font-weight: bolder;
+    color:var(--color-linkable);
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-decoration: none;
+  }
+  .sww-album-count{
+    font-size: 0.6rem;
+    color:var(--color-text-4);
+    height: 1rem;
+    line-height: 1rem;
+    span{
+      margin-right: 0.15rem;
+    }
+  }
+  .sww-cpn-album-card-tb{
+    --tb-height: 4rem;
+    margin-top: 0.5rem;
+    border-collapse:collapse;
+    .css-img{
+      display: block;
+      background-position: 50% 50%;
+      background-size: cover;
+      border: 0.05rem solid #ddd;
+      box-sizing: border-box;
+    }
+    &.sww-cpn-album-card-tb-1 {
+        td .css-img {
+        height: var(--tb-height);
+        width:  calc(var(--card-width) - 1rem);
+      }
+    }
+    &.sww-cpn-album-card-tb-2-h td .css-img{
+      height: calc(var(--tb-height) / 2);
+      width:  calc(var(--card-width) - 1rem);
+    }
+    &.sww-cpn-album-card-tb-2-v {
+      td .css-img{
+        height: calc(var(--tb-height));
+        width:  calc((var(--card-width) - 1rem - 0.1rem) / 2);
+      }
+      tr td:first-child .css-img {
+        margin-right: 0.2rem;
+      }
+    }
+    &.sww-cpn-album-card-tb-3 {
+      td[rowspan='2'] > .css-img {
+        height: var(--tb-height);
+        width: calc(((var(--card-width) - 1rem) / 2) - 0.1rem);
+      }
+      td:not([rowspan='2']) .css-img {
+        height: calc(var(--tb-height) / 2);
+        width: calc(((var(--card-width) - 1rem) / 2) - 0.1rem);
+        margin-left: 0.2rem;
+      }
+    }
+    &.sww-cpn-album-card-tb-4 {
+      td .css-img{
+        height: calc((var(--tb-height)) / 2);
+        width:  calc((var(--card-width) - 1rem - 0.1rem) / 2);
+      }
+      tr td:first-child .css-img {
+        margin-right: 0.2rem;
+      }
+    }
+    &.sww-cpn-album-card-tb-5 {
+      td[rowspan='2'] .css-img {
+        height: calc(var(--tb-height));
+        width: calc((var(--card-width) - 1rem - 0.1rem) / 2);
+        margin-right: 0.2rem;
+      }
+      td:not([rowspan='2']) .css-img {
+        height: calc(var(--tb-height) / 2);
+        width: calc((var(--card-width) - 1rem - 0.1rem) / 4);
+      }
+    }
+    &.sww-cpn-album-card-tb-6 {
+      td .css-img {
+        height: calc(var(--tb-height) / 2);
+        width: calc((var(--card-width) - 1rem - 0.1rem) / 3);
+      }
+    }
+  }
 }
 </style>
