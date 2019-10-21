@@ -132,7 +132,10 @@ var obj = {
    * Article
    ******************************/
   getArticleList (data) {
-    var sql = `SELECT * FROM ${this.TableName.list} AS list _WHERE_ LEFT JOIN ${this.TableName.class} AS class ON class.${this.fields.class.id} = list.${this.fields.list.class_id}`
+    let countSql = `SELECT COUNT(*) AS total FROM ${this.TableName.list} _WHERE_`
+    var sql = `SELECT * FROM ${this.TableName.list} AS list _WHERE_ LEFT JOIN ${this.TableName.class} AS class ON class.${this.fields.class.id} = list.${this.fields.list.class_id} LIMIT _page_,_size_`
+    // page, size
+    sql = sql.replace(/_page_/g, data.page || 1).replace(/_size_/g, data.size || 20)
     let queryArr = []
     if (data) {
       for (let key in this.fields.class) {
@@ -143,9 +146,12 @@ var obj = {
       }
     }
     if (queryArr.length > 0) {
-      sql = sql.replace('_WHERE_', `WHERE ${queryArr.join(' AND ')}`)
+      let whereStr = `WHERE ${queryArr.join(' AND ')}`
+      sql = sql.replace('_WHERE_', whereStr)
+      countSql = countSql.replace('_WHERE_', whereStr)
     } else {
       sql = sql.replace('_WHERE_', '')
+      countSql = countSql.replace('_WHERE_', 'WHERE 1')
     }
     const con = require('./index')
     return new Promise(function (resolve, reject) {
@@ -154,13 +160,20 @@ var obj = {
           isSuccess: false
         }
         if (err) {
-          console.log('[SELECT ERROR] - ', err.message)
+          console.error(err)
           resultObj.message = err.message
         } else {
           resultObj.isSuccess = true
           resultObj.list = result
+          con.query(countSql, function (err, result) {
+            if (err) {
+              console.error(err)
+            } else {
+              resultObj.total = parseInt(result[0].total)
+              resolve(resultObj)
+            }
+          })
         }
-        resolve(resultObj)
       })
     })
   },
