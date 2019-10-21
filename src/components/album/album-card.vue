@@ -1,7 +1,9 @@
 <template>
   <div class="sww-album-wrap">
-    <router-link class="sww-album-title" :to="'/album/'+id">{{title}}</router-link>
-    <p class="sww-album-count"><span>{{count}}</span>张</p>
+    <div class="sww-albu-title-wrap">
+      <router-link class="sww-album-title" :to="'/album/'+id">{{title}}</router-link>
+      <p class="sww-album-count"><span>{{count}}</span>张</p>
+    </div>
     <table :class="['sww-cpn-album-card-tb','sww-cpn-album-card-tb-'+disModeClass]">
       <tbody v-if="disModeClass=='1'">
         <tr>
@@ -112,21 +114,29 @@ export default {
 
 <style lang="less" scoped>
 .sww-album-wrap {
-  .sww-album-title {
-    font-size: 0.8rem;
-    font-weight: bolder;
-    color:var(--color-linkable);
-    height: 1.5rem;
-    line-height: 1.5rem;
-    text-decoration: none;
-  }
-  .sww-album-count{
-    font-size: 0.6rem;
-    color:var(--color-text-4);
-    height: 1rem;
-    line-height: 1rem;
-    span{
-      margin-right: 0.15rem;
+  .sww-albu-title-wrap {
+    display: flex;
+    .sww-album-title {
+      font-size: 0.8rem;
+      font-weight: bolder;
+      color:var(--color-linkable);
+      height: 1.5rem;
+      line-height: 1.5rem;
+      text-decoration: none;
+      width: 100%;
+      height: 100%;
+    }
+    .sww-album-count{
+      font-size: 0.6rem;
+      color:var(--color-text-4);
+      height: 1rem;
+      line-height: 1rem;
+      width: 2rem;
+      text-align: right;
+      flex-shrink: 0;
+      span{
+        margin-right: 0.15rem;
+      }
     }
   }
   .sww-cpn-album-card-tb{

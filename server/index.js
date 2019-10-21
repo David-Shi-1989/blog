@@ -58,7 +58,7 @@ app.get(['/', '/index.html'], function (req, res, next) {
 })
 
 app.use(tokenCheck)
-app.use('', apiRouter)
+app.use('/api', apiRouter)
 
 app.listen(LISTEN_PORT, function () {
   console.log(`App run at port ${LISTEN_PORT}`)

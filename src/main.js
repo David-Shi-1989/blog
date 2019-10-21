@@ -7,6 +7,7 @@ import 'font-awesome/css/font-awesome.min.css'
 import App from './App'
 import router from './router'
 import store from './store/index.js'
+import axios from './axios'
 import $ from 'jquery'
 import utils from '@/script/utils'
 import '~/style/main.css'
@@ -14,6 +15,7 @@ import '../static/script/common'
 
 Vue.config.productionTip = false
 Vue.prototype.utils = utils
+Vue.prototype.$axios = axios
 
 Vue.use(iView)
 
