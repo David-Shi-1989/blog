@@ -6,7 +6,7 @@
         <i :class="'fa fa-bars' + (isSideBarOpen?'':' open')" @click="toggleSideBar" :style="{float:(isSideBarOpen?'right':'left')}"></i>
       </div>
       <div class="x-avatar">
-        <img src="/static/image/avatar-colored-d.png">
+        <img src="/static/image/logo.png">
       </div>
       <div class="x-menus">
         <span class="menu-active-bg" :style="{top:activeMenuIdx * 2 + 'rem'}"></span>

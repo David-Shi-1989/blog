@@ -16,10 +16,28 @@ export default {
     return {
       arr: [],
       ROUTER_LIST: {
-        'article': '博客',
-        'album': '相册',
-        'post': '状态',
-        'demo': '作品'
+        'article': {
+          title: '文章',
+          defaultSubTitle: '某文章',
+          subs: {
+            add: '写文章'
+          }
+        },
+        'album': {
+          title: '相册',
+          subs: {
+          }
+        },
+        'post': {
+          title: '状态',
+          subs: {
+          }
+        },
+        'demo': {
+          title: '作品',
+          subs: {
+          }
+        }
       }
     }
   },
@@ -36,10 +54,16 @@ export default {
         let pathArr = this.$route.path.split('/').filter(function (item) {
           return (item.trim().length > 0)
         })
-        if (this.ROUTER_LIST[pathArr[0]]) {
-          this.arr.push({text: this.ROUTER_LIST[pathArr[0]], url: '/' + pathArr[0]})
+        let route1 = this.ROUTER_LIST[pathArr[0]]
+        if (route1) {
+          this.arr.push({text: route1.title, url: '/' + pathArr[0]})
           if (pathArr.length > 1) {
-            this.arr.push({text: pathArr[1]})
+            let route2 = route1.subs[pathArr[1]]
+            if (route2) {
+              this.arr.push({text: route2})
+            } else {
+              this.arr.push({text: route1.defaultSubTitle})
+            }
           }
         } else {
           throw Error('Need Update Router in bread-crumb')

@@ -1,14 +1,14 @@
 var obj = {
-  env: "dev",
+  env: 'dev',
   isDev () {
-    return process.env.NODE_ENV == "development"
+    return process.env.NODE_ENV === 'development'
   },
   mysql: {
     _dev: {
-      host: "localhost",
-      user: "root",
-      password: "",
-      database: "swwBlog",
+      host: 'localhost',
+      user: 'root',
+      password: '',
+      database: 'swwBlog',
       port: 3306,
       useConnectionPooling: true
     },
@@ -31,4 +31,4 @@ var obj = {
   }
 }
 
-module.exports = obj;
+module.exports = obj

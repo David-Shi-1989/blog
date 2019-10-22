@@ -132,11 +132,13 @@ var obj = {
    * Article
    ******************************/
   getArticleList (data) {
-    let countSql = `SELECT COUNT(*) AS total FROM ${this.TableName.list} _WHERE_`
-    var sql = `SELECT * FROM ${this.TableName.list} AS list _WHERE_ LEFT JOIN ${this.TableName.class} AS class ON class.${this.fields.class.id} = list.${this.fields.list.class_id} LIMIT _page_,_size_`
+    let countSql = `SELECT COUNT(*) AS total FROM ${this.TableName.list} AS list _WHERE_`
+    var sql = `SELECT * FROM ${this.TableName.list} AS list LEFT JOIN ${this.TableName.class} AS class ON class.${this.fields.class.id} = list.${this.fields.list.class_id} _WHERE_ LIMIT _beginIndex_,_size_`
     // page, size
-    sql = sql.replace(/_page_/g, data.page || 1).replace(/_size_/g, data.size || 20)
-    let queryArr = []
+    let page = data.page || 1
+    let size = (data.size || 20)
+    sql = sql.replace(/_beginIndex_/g, (page - 1) * size).replace(/_size_/g, size)
+    let queryArr = [`list.${this.fields.list.is_enable} > 0`]
     if (data) {
       for (let key in this.fields.class) {
         let column = this.fields.class[key]
@@ -146,9 +148,8 @@ var obj = {
       }
     }
     if (queryArr.length > 0) {
-      let whereStr = `WHERE ${queryArr.join(' AND ')}`
-      sql = sql.replace('_WHERE_', whereStr)
-      countSql = countSql.replace('_WHERE_', whereStr)
+      sql = sql.replace('_WHERE_', ['', ...queryArr].join(' AND '))
+      countSql = countSql.replace('_WHERE_', `WHERE ${queryArr.join(' AND ')}`)
     } else {
       sql = sql.replace('_WHERE_', '')
       countSql = countSql.replace('_WHERE_', 'WHERE 1')
@@ -190,7 +191,7 @@ var obj = {
           resultObj.message = err.message
         } else {
           resultObj.isSuccess = true
-          resultObj.list = result
+          resultObj.data = result[0]
         }
         resolve(resultObj)
       })
@@ -218,7 +219,7 @@ var obj = {
   },
   removeArticle (idList) {
     const con = require('./index')
-    var insertSqlStr = `DELETE FROM \`${this.TableName.list}\` WHERE \`${this.fields.list.id}\` IN (${idList.map(item=>`'${item}'`).join(',')})`
+    var insertSqlStr = `DELETE FROM \`${this.TableName.list}\` WHERE \`${this.fields.list.id}\` IN (${idList.map(item => `'${item}'`).join(',')})`
     var insertSqlParams = []
     return new Promise(function (resolve, reject) {
       con.query(insertSqlStr, insertSqlParams, function (err, result) {
