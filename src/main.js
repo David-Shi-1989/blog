@@ -12,11 +12,14 @@ import $ from 'jquery'
 import utils from '@/script/utils'
 import '~/style/main.css'
 import '../static/script/common'
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 
 Vue.config.productionTip = false
 Vue.prototype.utils = utils
 Vue.prototype.$axios = axios
 
+Vue.use(mavonEditor)
 Vue.use(iView)
 
 /* eslint-disable no-new */

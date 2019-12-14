@@ -8,7 +8,7 @@
   border-top-left-radius: @radius;
   border-bottom: 1px solid #e5e5e5;
   padding: 0 25px;
-  & > ul {
+  & > ul.btn-list {
     list-style: none;
     display: flex;
     @btnSize: 22px;
@@ -79,6 +79,14 @@
       &:hover {
         border-color: #bbb;
       }
+      & > i {
+        &:hover {
+          &+.tooltip {
+            display: block;
+          }
+        }
+      }
+      /*右侧分割线*/
       &.right-divider {
         &::after {
           content: "";
@@ -93,6 +101,7 @@
           margin-left: 10px;
         }
       }
+      /*dropdown下拉框*/
       .mdE-sub-toolbar {
         list-style: none;
         position: absolute;
@@ -156,6 +165,34 @@
             }
           }
         }
+      }
+    }
+  }
+  & > ul.tooltip {
+    list-style: none;
+    display: flex;
+    position: relative;
+    margin-top: 8px;
+    /*tooltip*/
+    & > li {
+      position: absolute;
+      background-color: #222;
+      color:#fff;
+      font-size: 12px;
+      z-index: 1024;
+      padding: 2px 4px;
+      opacity: .8;
+      height: 28px;
+      line-height: 28px;
+      &::after {
+        content: "";
+        width: 8px;
+        height: 8px;
+        background-color: #222;
+        transform: rotate(45deg);
+        position: absolute;
+        top: -4px;
+        left: calc(50% - 4px);
       }
     }
   }

@@ -5,7 +5,7 @@
     </div>
     <div class="sww-page-main">
       <div class="sww-page-main-info">
-        <span><i class="fa fa-calendar"></i>2017-10-22 10:32:10</span>
+        <span><i class="fa fa-calendar"></i>{{createTime}}</span>
         <span><i class="fa fa-folder-open"></i>CSS技巧</span>
         <span class="sww-css-tags"><i class="fa fa-tags"></i><span>前端</span><span>CSS</span></span>
         <span><i class="fa fa-eye"></i>123</span>
@@ -56,7 +56,7 @@ export default {
     fetchData (data) {
       this.title = data.article_title
       this.html = data.article_content
-      this.createTime = data.article_create_time
+      this.createTime = (new Date(data.article_create_time)).format('yyyy/MM/dd hh:mm:ss')
       this.isSelf = data.article_is_self > 0
       this.isTop = data.article_is_top > 0
       this.readCount = data.article_read_count

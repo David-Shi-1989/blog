@@ -69,6 +69,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import url('../../../static/less/color.less');
 .sww-page-wrap {
   position: relative;
   ul.sww-article-list-c2{
@@ -120,6 +121,7 @@ export default {
       .sww-article-datetime{
         width:7rem;
         text-align: right;
+        color: @color-subcolor;
       }
     }
   }

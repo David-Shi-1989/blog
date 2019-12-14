@@ -63,6 +63,11 @@ export default {
   .sww-star-wrap {
     cursor: pointer;
     display: inline-block;
+    &::before {
+      content: "难度:";
+      margin-right: 5px;
+      color: var(--color-text-5);
+    }
     i.fa {
       font-size: 0.7rem;
       &.fa-star, &.fa-star-half-full {
